@@ -1,0 +1,423 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="لوحة إدارة منصة اسأل قلقيلية لإدارة المتاجر، التصنيفات، الوظائف، الاشتراكات، المراجعات، والبلاغات." />
+    <title>لوحة الإدارة | اسأل قلقيلية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-[#F8FAFC] text-slate-900 antialiased [font-family:Tajawal,Inter,sans-serif]">
+    <div class="min-h-screen lg:grid lg:grid-cols-[280px_1fr]">
+      <!-- Admin Sidebar -->
+      <aside class="hidden border-l border-slate-200 bg-white lg:sticky lg:top-0 lg:block lg:h-screen lg:overflow-y-auto">
+        <div class="flex h-full flex-col p-5">
+          <a href="index.html" class="flex items-center gap-3 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-100" aria-label="اسأل قلقيلية">
+            <span class="flex size-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+            </span>
+            <span>
+              <span class="block text-lg font-extrabold leading-5 text-slate-950">اسأل قلقيلية</span>
+              <span class="block text-xs font-bold text-slate-500">لوحة إدارة المنصة</span>
+            </span>
+          </a>
+
+          <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-sm font-extrabold text-slate-950">إدارة المنصة</p>
+            <p class="mt-1 text-xs font-bold text-slate-500">المتاجر · الوظائف · الاشتراكات</p>
+            <span class="mt-3 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-extrabold text-[#2563EB]">مدير المنصة</span>
+          </div>
+
+          <nav class="mt-6 grid gap-1" aria-label="تنقل لوحة الإدارة">
+            <a href="admin-dashboard.html" aria-current="page" class="rounded-2xl bg-blue-50 px-4 py-3 text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">نظرة عامة</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">طلبات المتاجر</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">المتاجر المعتمدة</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">التصنيفات</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الوظائف</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الاشتراكات</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">المراجعات</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">المستخدمون</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">البلاغات</a>
+            <a href="admin-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">إعدادات المنصة</a>
+          </nav>
+
+          <a href="login.html" class="mt-auto rounded-2xl border border-slate-200 px-4 py-3 text-center text-sm font-extrabold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">تسجيل الخروج</a>
+        </div>
+      </aside>
+
+      <div class="min-w-0">
+        <!-- Admin Topbar -->
+        <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
+          <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+            <div class="flex min-w-0 items-center gap-3">
+              <a href="index.html" class="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-100" aria-label="اسأل قلقيلية">
+                <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+              </a>
+              <div class="min-w-0">
+                <p class="text-xs font-bold text-slate-500">إدارة اسأل قلقيلية</p>
+                <h1 class="truncate text-xl font-extrabold text-slate-950 sm:text-2xl">لوحة الإدارة</h1>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="hidden rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-[#2563EB] sm:inline-flex">مدير المنصة</span>
+              <a href="index.html" class="inline-flex items-center justify-center rounded-2xl bg-[#2563EB] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">عرض الموقع</a>
+            </div>
+          </div>
+          <div class="mx-auto max-w-7xl px-4 pb-3 sm:px-6 lg:hidden">
+            <button type="button" class="inline-flex h-11 w-full items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 px-4 text-sm font-extrabold text-[#2563EB] shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-100">
+              إدارة الأقسام
+            </button>
+          </div>
+        </header>
+
+        <main class="mx-auto max-w-7xl px-4 py-6 pb-10 sm:px-6 lg:px-8 lg:py-8">
+          <nav class="mb-6 flex gap-2 overflow-x-auto pb-1 lg:hidden" aria-label="تنقل لوحة الإدارة المختصر">
+            <a href="admin-dashboard.html" aria-current="page" class="shrink-0 rounded-full bg-blue-50 px-4 py-2 text-sm font-extrabold text-[#2563EB]">نظرة عامة</a>
+            <a href="admin-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">الطلبات</a>
+            <a href="admin-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">المتاجر</a>
+            <a href="admin-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">الوظائف</a>
+            <a href="admin-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">الاشتراكات</a>
+            <a href="admin-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">البلاغات</a>
+          </nav>
+
+          <div class="grid gap-6">
+            <!-- Admin Alert -->
+            <section class="rounded-2xl border border-orange-200 bg-orange-50 p-5 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-6" aria-labelledby="admin-alert-title">
+              <div>
+                <p class="text-xs font-extrabold text-[#EA580C]">تنبيه اليوم</p>
+                <h2 id="admin-alert-title" class="mt-2 text-2xl font-extrabold text-slate-950">يوجد عناصر تحتاج مراجعة اليوم</h2>
+                <div class="mt-3 flex flex-wrap gap-2 text-sm font-extrabold text-slate-700">
+                  <span class="rounded-full bg-white px-3 py-1.5">8 طلبات متاجر</span>
+                  <span class="rounded-full bg-white px-3 py-1.5">5 وظائف</span>
+                  <span class="rounded-full bg-white px-3 py-1.5">3 بلاغات</span>
+                </div>
+              </div>
+              <a href="admin-dashboard.html" class="mt-4 inline-flex h-11 w-full items-center justify-center rounded-2xl bg-[#EA580C] px-5 text-sm font-extrabold text-white hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-100 sm:mt-0 sm:w-auto">عرض المهام</a>
+            </section>
+
+            <!-- Platform Stats -->
+            <section aria-labelledby="platform-stats-title">
+              <div class="mb-4 flex items-center justify-between gap-3">
+                <h2 id="platform-stats-title" class="text-xl font-extrabold text-slate-950">ملخص المنصة</h2>
+                <p class="text-sm font-bold text-slate-500">آخر تحديث: اليوم</p>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p class="text-sm font-bold text-slate-500">إجمالي المتاجر</p>
+                  <p class="mt-2 text-3xl font-extrabold text-slate-950">312</p>
+                </article>
+                <article class="rounded-2xl border border-orange-200 bg-orange-50 p-5 shadow-sm">
+                  <p class="text-sm font-bold text-slate-600">بانتظار المراجعة</p>
+                  <p class="mt-2 text-3xl font-extrabold text-[#EA580C]">8</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p class="text-sm font-bold text-slate-500">وظائف نشطة</p>
+                  <p class="mt-2 text-3xl font-extrabold text-slate-950">86</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p class="text-sm font-bold text-slate-500">مستخدمون</p>
+                  <p class="mt-2 text-3xl font-extrabold text-slate-950">445</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p class="text-sm font-bold text-slate-500">اشتراكات فعالة</p>
+                  <p class="mt-2 text-3xl font-extrabold text-slate-950">71</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <p class="text-sm font-bold text-slate-500">مراجعات هذا الأسبوع</p>
+                  <p class="mt-2 text-3xl font-extrabold text-slate-950">126</p>
+                </article>
+              </div>
+            </section>
+
+            <!-- Attention Required -->
+            <section class="rounded-2xl border border-orange-200 bg-orange-50 p-5 shadow-sm sm:p-6" aria-labelledby="attention-title">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p class="text-xs font-extrabold text-[#EA580C]">أولوية الإدارة</p>
+                  <h2 id="attention-title" class="mt-2 text-2xl font-extrabold text-slate-950">يحتاج إلى مراجعة</h2>
+                </div>
+                <a href="admin-dashboard.html" class="inline-flex h-11 items-center justify-center rounded-2xl bg-[#EA580C] px-5 text-sm font-extrabold text-white hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-100">مراجعة الكل</a>
+              </div>
+              <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                <article class="rounded-2xl bg-white p-4 shadow-sm">
+                  <h3 class="font-extrabold text-slate-950">8 متاجر بانتظار الاعتماد</h3>
+                  <div class="mt-4 flex gap-2">
+                    <a href="admin-dashboard.html" class="rounded-2xl bg-[#2563EB] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-blue-100">مراجعة الآن</a>
+                    <a href="admin-dashboard.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض التفاصيل</a>
+                  </div>
+                </article>
+                <article class="rounded-2xl bg-white p-4 shadow-sm">
+                  <h3 class="font-extrabold text-slate-950">3 بلاغات على مراجعات</h3>
+                  <div class="mt-4 flex gap-2">
+                    <a href="admin-dashboard.html" class="rounded-2xl bg-[#2563EB] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-blue-100">مراجعة الآن</a>
+                    <a href="admin-dashboard.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض التفاصيل</a>
+                  </div>
+                </article>
+                <article class="rounded-2xl bg-white p-4 shadow-sm">
+                  <h3 class="font-extrabold text-slate-950">5 وظائف تحتاج تدقيق</h3>
+                  <div class="mt-4 flex gap-2">
+                    <a href="admin-dashboard.html" class="rounded-2xl bg-[#2563EB] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-blue-100">مراجعة الآن</a>
+                    <a href="admin-dashboard.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض التفاصيل</a>
+                  </div>
+                </article>
+                <article class="rounded-2xl bg-white p-4 shadow-sm">
+                  <h3 class="font-extrabold text-slate-950">2 اشتراكات قاربت على الانتهاء</h3>
+                  <div class="mt-4 flex gap-2">
+                    <a href="admin-dashboard.html" class="rounded-2xl bg-[#2563EB] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-blue-100">مراجعة الآن</a>
+                    <a href="admin-dashboard.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض التفاصيل</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <div class="grid gap-6 xl:grid-cols-[1fr_360px]">
+              <div class="grid gap-6">
+                <!-- Store Approval Queue -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="approval-title">
+                  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <h2 id="approval-title" class="text-xl font-extrabold text-slate-950">طلبات المتاجر</h2>
+                      <p class="mt-1 text-sm font-bold text-slate-500">طلبات جديدة تحتاج قبولاً أو رفضاً</p>
+                      <p class="mt-2 text-sm leading-6 text-slate-600">راجع بيانات النشاط قبل اعتماد الطلب.</p>
+                    </div>
+                    <a href="admin-dashboard.html" class="inline-flex h-11 items-center justify-center rounded-2xl border border-slate-200 px-4 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض كل الطلبات</a>
+                  </div>
+                  <div class="mt-5 overflow-hidden rounded-2xl border border-slate-200">
+                    <div class="hidden grid-cols-[1.2fr_1fr_0.8fr_1fr_0.8fr_0.8fr_1.3fr] gap-4 bg-slate-50 px-4 py-3 text-sm font-extrabold text-slate-600 lg:grid">
+                      <span>اسم النشاط</span>
+                      <span>التصنيف</span>
+                      <span>المنطقة</span>
+                      <span>صاحب النشاط</span>
+                      <span>تاريخ الطلب</span>
+                      <span>الحالة</span>
+                      <span>الإجراءات</span>
+                    </div>
+                    <div class="divide-y divide-slate-200">
+                      <article class="grid gap-4 p-4 lg:grid-cols-[1.2fr_1fr_0.8fr_1fr_0.8fr_0.8fr_1.3fr] lg:items-center">
+                        <div><p class="text-xs font-bold text-slate-500 lg:hidden">اسم النشاط</p><p class="font-extrabold text-slate-950">مطعم أبو العبد</p></div>
+                        <div class="text-sm font-bold text-slate-600">مطاعم وكافيهات</div>
+                        <div class="text-sm font-bold text-slate-600">وسط البلد</div>
+                        <div class="text-sm font-bold text-slate-600">عبد الرحمن ناصر</div>
+                        <div class="text-sm font-bold text-slate-600">اليوم</div>
+                        <div><span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-extrabold text-[#EA580C]">قيد المراجعة</span></div>
+                        <div class="flex flex-wrap gap-2">
+                          <a href="admin-dashboard.html" class="rounded-2xl bg-[#16A34A] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-green-100">قبول</a>
+                          <a href="admin-dashboard.html" class="rounded-2xl bg-red-50 px-3 py-2 text-sm font-extrabold text-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">رفض</a>
+                          <a href="store.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض</a>
+                        </div>
+                      </article>
+                      <article class="grid gap-4 p-4 lg:grid-cols-[1.2fr_1fr_0.8fr_1fr_0.8fr_0.8fr_1.3fr] lg:items-center">
+                        <div><p class="text-xs font-bold text-slate-500 lg:hidden">اسم النشاط</p><p class="font-extrabold text-slate-950">صيدلية الأقصى</p></div>
+                        <div class="text-sm font-bold text-slate-600">صيدليات</div>
+                        <div class="text-sm font-bold text-slate-600">شارع نابلس</div>
+                        <div class="text-sm font-bold text-slate-600">سمر خليل</div>
+                        <div class="text-sm font-bold text-slate-600">أمس</div>
+                        <div><span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-extrabold text-[#EA580C]">قيد المراجعة</span></div>
+                        <div class="flex flex-wrap gap-2">
+                          <a href="admin-dashboard.html" class="rounded-2xl bg-[#16A34A] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-green-100">قبول</a>
+                          <a href="admin-dashboard.html" class="rounded-2xl bg-red-50 px-3 py-2 text-sm font-extrabold text-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">رفض</a>
+                          <a href="store.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض</a>
+                        </div>
+                      </article>
+                      <article class="grid gap-4 p-4 lg:grid-cols-[1.2fr_1fr_0.8fr_1fr_0.8fr_0.8fr_1.3fr] lg:items-center">
+                        <div><p class="text-xs font-bold text-slate-500 lg:hidden">اسم النشاط</p><p class="font-extrabold text-slate-950">مركز النور للتدريب</p></div>
+                        <div class="text-sm font-bold text-slate-600">تعليم وتدريب</div>
+                        <div class="text-sm font-bold text-slate-600">منطقة السوق</div>
+                        <div class="text-sm font-bold text-slate-600">محمود عودة</div>
+                        <div class="text-sm font-bold text-slate-600">28 مايو</div>
+                        <div><span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-extrabold text-[#EA580C]">قيد المراجعة</span></div>
+                        <div class="flex flex-wrap gap-2">
+                          <a href="admin-dashboard.html" class="rounded-2xl bg-[#16A34A] px-3 py-2 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-green-100">قبول</a>
+                          <a href="admin-dashboard.html" class="rounded-2xl bg-red-50 px-3 py-2 text-sm font-extrabold text-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">رفض</a>
+                          <a href="store.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض</a>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Featured Stores -->
+                <!-- Featured Stores Widget -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="featured-title">
+                  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <h2 id="featured-title" class="text-xl font-extrabold text-slate-950">المتاجر المميزة</h2>
+                      <p class="mt-1 text-sm font-bold text-slate-500">12 متجر مميز حالياً</p>
+                      <p class="mt-2 text-sm leading-6 text-slate-600">المتاجر المميزة تظهر بأولوية أعلى داخل نتائج البحث.</p>
+                    </div>
+                    <a href="admin-dashboard.html" class="inline-flex h-11 items-center justify-center rounded-2xl bg-[#2563EB] px-4 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">إضافة متجر مميز</a>
+                  </div>
+                  <div class="mt-5 grid gap-4 md:grid-cols-3">
+                    <article class="rounded-2xl border border-orange-100 bg-orange-50 p-4">
+                      <span class="rounded-full bg-white px-3 py-1 text-xs font-extrabold text-[#EA580C]">مميز</span>
+                      <h3 class="mt-3 font-extrabold text-slate-950">مطعم أبو العبد</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-600">مطاعم · وسط البلد</p>
+                    </article>
+                    <article class="rounded-2xl border border-orange-100 bg-orange-50 p-4">
+                      <span class="rounded-full bg-white px-3 py-1 text-xs font-extrabold text-[#EA580C]">مميز</span>
+                      <h3 class="mt-3 font-extrabold text-slate-950">كافيه القلعة</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-600">كافيهات · شارع نابلس</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <span class="rounded-full bg-white px-3 py-1 text-xs font-extrabold text-slate-500">غير مميز</span>
+                      <h3 class="mt-3 font-extrabold text-slate-950">محلات المدينة</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-600">تسوق · منطقة السوق</p>
+                    </article>
+                  </div>
+                </section>
+
+                <!-- Jobs Moderation -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="jobs-moderation-title">
+                  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <h2 id="jobs-moderation-title" class="text-xl font-extrabold text-slate-950">مراجعة الوظائف</h2>
+                      <p class="mt-1 text-sm font-bold text-slate-500">86 وظيفة نشطة · 5 بانتظار المراجعة</p>
+                    </div>
+                    <a href="jobs.html" class="inline-flex h-11 items-center justify-center rounded-2xl border border-slate-200 px-4 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض الوظائف</a>
+                  </div>
+                  <div class="mt-5 grid gap-3">
+                    <article class="rounded-2xl bg-slate-50 p-4">
+                      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div><h3 class="font-extrabold text-slate-950">محاسب/ة</h3><p class="mt-1 text-sm font-bold text-slate-500">شركة مواد غذائية · منطقة السوق</p></div>
+                        <div class="flex gap-2"><a href="admin-dashboard.html" class="rounded-2xl bg-[#16A34A] px-3 py-2 text-sm font-extrabold text-white">اعتماد</a><a href="admin-dashboard.html" class="rounded-2xl bg-red-50 px-3 py-2 text-sm font-extrabold text-red-700">رفض</a><a href="job-single.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700">عرض</a></div>
+                      </div>
+                    </article>
+                    <article class="rounded-2xl bg-slate-50 p-4">
+                      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div><h3 class="font-extrabold text-slate-950">فني صيانة</h3><p class="mt-1 text-sm font-bold text-slate-500">مركز صيانة المدينة · شارع نابلس</p></div>
+                        <div class="flex gap-2"><a href="admin-dashboard.html" class="rounded-2xl bg-[#16A34A] px-3 py-2 text-sm font-extrabold text-white">اعتماد</a><a href="admin-dashboard.html" class="rounded-2xl bg-red-50 px-3 py-2 text-sm font-extrabold text-red-700">رفض</a><a href="job-single.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700">عرض</a></div>
+                      </div>
+                    </article>
+                    <article class="rounded-2xl bg-slate-50 p-4">
+                      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div><h3 class="font-extrabold text-slate-950">مساعد صيدلي</h3><p class="mt-1 text-sm font-bold text-slate-500">صيدلية الأقصى · وسط البلد</p></div>
+                        <div class="flex gap-2"><a href="admin-dashboard.html" class="rounded-2xl bg-[#16A34A] px-3 py-2 text-sm font-extrabold text-white">اعتماد</a><a href="admin-dashboard.html" class="rounded-2xl bg-red-50 px-3 py-2 text-sm font-extrabold text-red-700">رفض</a><a href="job-single.html" class="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-extrabold text-slate-700">عرض</a></div>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+
+                <!-- Categories Management -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="categories-title">
+                  <h2 id="categories-title" class="text-xl font-extrabold text-slate-950">إدارة التصنيفات</h2>
+                  <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">مطاعم وكافيهات</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-500">214 نشاط · ظاهر</p>
+                      <a href="category.html" class="mt-4 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل</a>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">أطباء وعيادات</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-500">47 نشاط · ظاهر</p>
+                      <a href="admin-dashboard.html" class="mt-4 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل</a>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">صيانة وفنيون</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-500">62 نشاط · ظاهر</p>
+                      <a href="admin-dashboard.html" class="mt-4 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل</a>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">محلات وتسوق</h3>
+                      <p class="mt-1 text-sm font-bold text-slate-500">89 نشاط · ظاهر</p>
+                      <a href="admin-dashboard.html" class="mt-4 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل</a>
+                    </article>
+                  </div>
+                </section>
+              </div>
+
+              <aside class="grid content-start gap-6">
+                <!-- Platform Health -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="platform-health-title">
+                  <img src="assets/images/dashboard/analytics.jpg" alt="لوحة مؤشرات وتحليلات" class="mb-4 h-28 w-full rounded-2xl object-cover" />
+                  <p class="inline-flex rounded-full bg-green-50 px-3 py-1 text-xs font-extrabold text-[#16A34A]">مستقرة</p>
+                  <h2 id="platform-health-title" class="mt-3 text-xl font-extrabold text-slate-950">حالة المنصة</h2>
+                  <p class="mt-3 text-sm font-extrabold text-[#16A34A]">✓ تعمل بشكل طبيعي</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-600">آخر مزامنة: اليوم</p>
+                </section>
+
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="quick-actions-title">
+                  <h2 id="quick-actions-title" class="text-xl font-extrabold text-slate-950">إجراءات إدارية سريعة</h2>
+                  <div class="mt-5 grid gap-3">
+                    <a href="admin-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl bg-[#2563EB] px-5 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">إضافة تصنيف</a>
+                    <a href="admin-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl border border-slate-200 px-5 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">اعتماد متجر</a>
+                    <a href="admin-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl border border-slate-200 px-5 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">إنشاء باقة</a>
+                    <a href="admin-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl border border-slate-200 px-5 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">مراجعة البلاغات</a>
+                    <a href="admin-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl bg-[#16A34A] px-5 text-sm font-extrabold text-white hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-100">إرسال تنبيه لأصحاب الأعمال</a>
+                  </div>
+                </section>
+
+                <!-- Subscription Overview -->
+                <!-- Subscription Widget -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="subscription-overview-title">
+                  <h2 id="subscription-overview-title" class="text-xl font-extrabold text-slate-950">ملخص الاشتراكات</h2>
+                  <dl class="mt-5 grid gap-3 text-sm">
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">اشتراكات فعالة</dt><dd class="font-extrabold text-slate-950">71</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">قاربت على الانتهاء</dt><dd class="font-extrabold text-[#EA580C]">2</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">إيرادات متوقعة</dt><dd class="font-extrabold text-slate-950">قريباً</dd></div>
+                  </dl>
+                  <div class="mt-5 grid gap-3">
+                    <p class="text-sm font-extrabold text-slate-950">توزيع الباقات</p>
+                    <p class="rounded-2xl bg-slate-50 p-3 text-sm font-bold text-slate-700">مجانية: 241 متجر</p>
+                    <p class="rounded-2xl bg-blue-50 p-3 text-sm font-bold text-[#2563EB]">فضية: 58 متجر</p>
+                    <p class="rounded-2xl bg-orange-50 p-3 text-sm font-bold text-[#EA580C]">ذهبية: 13 متجر</p>
+                  </div>
+                  <a href="admin-dashboard.html" class="mt-5 inline-flex h-11 w-full items-center justify-center rounded-2xl border border-slate-200 px-4 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">إدارة الباقات</a>
+                </section>
+
+                <!-- Reviews Reports -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="reviews-reports-title">
+                  <h2 id="reviews-reports-title" class="text-xl font-extrabold text-slate-950">المراجعات والبلاغات</h2>
+                  <p class="mt-1 text-sm font-bold text-slate-500">3 مراجعات مبلغ عنها</p>
+                  <div class="mt-5 grid gap-3">
+                    <article class="rounded-2xl bg-slate-50 p-4">
+                      <p class="font-extrabold text-slate-950">مراجعة على مطعم أبو العبد</p>
+                      <p class="mt-1 text-sm leading-6 text-slate-600">بلاغ: محتوى غير دقيق</p>
+                      <div class="mt-3 flex gap-2"><a href="admin-dashboard.html" class="text-sm font-extrabold text-red-700">إخفاء</a><a href="admin-dashboard.html" class="text-sm font-extrabold text-[#16A34A]">إبقاء</a><a href="admin-dashboard.html" class="text-sm font-extrabold text-[#2563EB]">مراجعة</a></div>
+                    </article>
+                    <article class="rounded-2xl bg-slate-50 p-4">
+                      <p class="font-extrabold text-slate-950">مراجعة على مركز النور</p>
+                      <p class="mt-1 text-sm leading-6 text-slate-600">بلاغ: لغة غير مناسبة</p>
+                      <div class="mt-3 flex gap-2"><a href="admin-dashboard.html" class="text-sm font-extrabold text-red-700">إخفاء</a><a href="admin-dashboard.html" class="text-sm font-extrabold text-[#16A34A]">إبقاء</a><a href="admin-dashboard.html" class="text-sm font-extrabold text-[#2563EB]">مراجعة</a></div>
+                    </article>
+                  </div>
+                </section>
+
+                <!-- Data Quality -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="data-quality-title">
+                  <p class="inline-flex rounded-full bg-orange-50 px-3 py-1 text-xs font-extrabold text-[#EA580C]">تحسينات مطلوبة</p>
+                  <h2 id="data-quality-title" class="mt-3 text-xl font-extrabold text-slate-950">جودة بيانات المنصة</h2>
+                  <div class="mt-5 grid gap-3 text-sm font-bold text-slate-700">
+                    <p>متاجر بدون صور: 24</p>
+                    <p>متاجر بدون أوقات عمل: 17</p>
+                    <p>متاجر بدون موقع على الخريطة: 11</p>
+                    <p>وظائف بدون تاريخ انتهاء: 5</p>
+                    <p>أنشطة تحتاج تحديث: 32</p>
+                  </div>
+                  <a href="admin-dashboard.html" class="mt-5 inline-flex h-11 w-full items-center justify-center rounded-2xl bg-[#2563EB] px-4 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">تحسين البيانات الآن</a>
+                </section>
+
+                <!-- Admin Activity Log -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="activity-title">
+                  <h2 id="activity-title" class="text-xl font-extrabold text-slate-950">آخر نشاط إداري</h2>
+                  <div class="mt-5 grid gap-3 text-sm">
+                    <p class="rounded-2xl bg-slate-50 p-3 font-bold text-slate-700">تم اعتماد متجر: صيدلية المدينة</p>
+                    <p class="rounded-2xl bg-slate-50 p-3 font-bold text-slate-700">تم رفض وظيفة: مندوب مبيعات</p>
+                    <p class="rounded-2xl bg-slate-50 p-3 font-bold text-slate-700">تم تمييز متجر: كافيه القلعة</p>
+                    <p class="rounded-2xl bg-slate-50 p-3 font-bold text-slate-700">تم تحديث تصنيف: مطاعم وكافيهات</p>
+                  </div>
+                </section>
+              </aside>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+

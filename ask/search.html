@@ -1,0 +1,273 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ابحث في اسأل قلقيلية عبر الأعمال والخدمات والوظائف والتصنيفات والاقتراحات المحلية."
+    />
+    <title>البحث | اسأل قلقيلية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-[#F8FAFC] pb-28 text-slate-900 antialiased [font-family:Tajawal,Inter,sans-serif] lg:pb-0">
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="التنقل الرئيسي">
+        <a href="index.html" class="flex items-center gap-3" aria-label="اسأل قلقيلية">
+          <span class="flex size-11 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+          </span>
+          <span>
+            <span class="block text-lg font-extrabold leading-5 text-slate-950">اسأل قلقيلية</span>
+            <span class="block text-xs font-bold text-slate-500">دليل محلي موثوق</span>
+          </span>
+        </a>
+
+        <div class="hidden items-center gap-1 lg:flex">
+          <a href="category.html" class="rounded-2xl px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100">التصنيفات</a>
+          <a href="stores.html" class="rounded-2xl px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100">الأعمال</a>
+          <a href="jobs.html" class="rounded-2xl px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100">الوظائف</a>
+          <a href="search.html" aria-current="page" class="rounded-2xl bg-blue-50 px-4 py-2 text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">البحث</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="login.html" class="hidden rounded-2xl px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-blue-100 md:inline-flex">دخول</a>
+          <a href="register.html" class="hidden rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-extrabold text-slate-800 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100 sm:inline-flex">حساب جديد</a>
+          <a href="register.html" class="inline-flex rounded-2xl bg-[#2563EB] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">
+            سجل نشاطك
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+          <nav class="flex flex-wrap items-center gap-2 text-sm font-bold text-slate-500" aria-label="مسار التنقل">
+            <a href="index.html" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">الرئيسية</a>
+            <span aria-hidden="true">/</span>
+            <span class="text-slate-950">البحث</span>
+          </nav>
+
+          <div class="mt-6 max-w-4xl">
+            <p class="inline-flex w-fit items-center gap-2 rounded-2xl bg-blue-50 px-3 py-1.5 text-sm font-extrabold text-[#2563EB]">
+              <span class="size-2 rounded-full bg-[#16A34A]" aria-hidden="true"></span>
+              بحث ذكي داخل قلقيلية
+            </p>
+            <p class="mt-3 inline-flex w-fit rounded-2xl bg-orange-50 px-3 py-1.5 text-xs font-extrabold text-[#EA580C]">
+              قريباً: مساعد ذكي للبحث داخل قلقيلية
+            </p>
+            <h1 class="mt-4 text-3xl font-extrabold leading-tight text-slate-950 sm:text-5xl">ابحث في الأعمال، الخدمات، الوظائف، والتصنيفات</h1>
+            <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+              اكتب ما تحتاجه بلغة طبيعية مثل "مطعم مفتوح الآن" أو "وظائف محاسبة"، وسنرتب لك النتائج الأكثر فائدة.
+            </p>
+          </div>
+
+          <form class="mt-7 rounded-2xl border border-slate-200 bg-white p-3 shadow-lg shadow-slate-200/70" role="search" aria-label="البحث العام في اسأل قلقيلية">
+            <div class="grid gap-3 lg:grid-cols-[1fr_auto]">
+              <label class="relative block">
+                <span class="sr-only">اكتب عبارة البحث</span>
+                <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm font-extrabold text-slate-400" aria-hidden="true">بحث</span>
+                <input
+                  type="search"
+                  name="q"
+                  value="مطعم مفتوح الآن"
+                  placeholder="مطعم مفتوح الآن أو وظائف محاسبة"
+                  class="h-14 w-full rounded-2xl border border-slate-200 bg-slate-50 pr-16 pl-4 text-base font-bold text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#2563EB] focus:bg-white focus:ring-4 focus:ring-blue-100"
+                />
+              </label>
+              <button type="submit" class="inline-flex h-14 items-center justify-center rounded-2xl bg-[#2563EB] px-8 text-base font-extrabold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">
+                بحث
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <nav class="flex gap-2 overflow-x-auto pb-1" aria-label="تصفية نتائج البحث">
+          <a href="search.html" aria-current="page" class="shrink-0 rounded-2xl bg-[#2563EB] px-4 py-2.5 text-sm font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-blue-200">الكل</a>
+          <a href="search.html" class="shrink-0 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-extrabold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الأعمال</a>
+          <a href="search.html" class="shrink-0 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-extrabold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الخدمات</a>
+          <a href="search.html" class="shrink-0 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-extrabold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الوظائف</a>
+          <a href="search.html" class="shrink-0 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-extrabold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">التصنيفات</a>
+        </nav>
+
+        <div class="mt-5 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 class="text-lg font-extrabold text-slate-950">وجدنا 24 نتيجة لـ مطعم مفتوح الآن</h2>
+          <p class="mt-1 text-sm font-bold text-slate-500">تشمل النتائج أعمالا محلية، خدمات، وظائف مرتبطة، وتصنيفات مقترحة.</p>
+        </div>
+        <div class="mt-4 rounded-2xl border border-blue-100 bg-blue-50 p-4">
+          <h2 class="text-sm font-extrabold text-slate-950">شفافية نتائج البحث</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-700">نتائج البحث تعتمد على بيانات المتاجر والخدمات والوظائف المسجلة داخل منصة اسأل قلقيلية.</p>
+          <p class="mt-1 text-sm leading-6 text-slate-600">سيتم تطوير البحث الذكي مستقبلاً ليقترح نتائج أكثر دقة بناءً على بيانات المنصة.</p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-4 pb-6 sm:px-6 lg:px-8" aria-labelledby="suggestions-title">
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <p class="text-sm font-extrabold text-[#16A34A]">اقتراحات ذكية</p>
+          <h2 id="suggestions-title" class="mt-2 text-2xl font-extrabold text-slate-950">ربما تبحث عن</h2>
+          <div class="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <a href="search.html" class="rounded-2xl border border-blue-100 bg-blue-50 p-4 hover:bg-blue-100 focus:outline-none focus:ring-4 focus:ring-blue-100">
+              <h3 class="font-extrabold text-slate-950">مطاعم قريبة منك</h3>
+              <p class="mt-1 text-sm font-bold text-slate-600">أماكن ضمن وسط البلد والمناطق القريبة.</p>
+            </a>
+            <a href="search.html" class="rounded-2xl border border-green-100 bg-green-50 p-4 hover:bg-green-100 focus:outline-none focus:ring-4 focus:ring-green-100">
+              <h3 class="font-extrabold text-slate-950">مطاعم مفتوحة الآن</h3>
+              <p class="mt-1 text-sm font-bold text-slate-600">نتائج محدثة حسب أوقات العمل المتوفرة.</p>
+            </a>
+            <a href="search.html" class="rounded-2xl border border-orange-100 bg-orange-50 p-4 hover:bg-orange-100 focus:outline-none focus:ring-4 focus:ring-orange-100">
+              <h3 class="font-extrabold text-slate-950">الأعلى تقييماً</h3>
+              <p class="mt-1 text-sm font-bold text-slate-600">أماكن يثق بها سكان قلقيلية.</p>
+            </a>
+            <a href="search.html" class="rounded-2xl border border-blue-100 bg-blue-50 p-4 hover:bg-blue-100 focus:outline-none focus:ring-4 focus:ring-blue-100">
+              <h3 class="font-extrabold text-slate-950">أفضل الأماكن المفتوحة الآن</h3>
+              <p class="mt-1 text-sm font-bold text-slate-600">نتائج نشطة تجمع التقييم العالي وحالة الدوام.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_320px] lg:px-8">
+        <div class="grid gap-4">
+          <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+            <img src="assets/images/businesses/restaurant-interior.jpg" alt="مطعم أبو العبد" class="h-40 w-full object-cover" />
+            <div class="p-5">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-extrabold text-[#2563EB]">عمل محلي</p>
+                <h2 class="mt-2 text-xl font-extrabold text-slate-950">مطعم أبو العبد</h2>
+                <p class="mt-1 text-sm font-bold text-slate-500">مطاعم وكافيهات · وسط البلد · مفتوح الآن</p>
+              </div>
+              <span class="w-fit rounded-full bg-orange-50 px-3 py-1 text-sm font-extrabold text-[#EA580C]">4.8</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">مشاوي ومأكولات شعبية، مناسب للعائلات، وتوصيل قريب داخل المدينة.</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <a href="store.html" class="inline-flex rounded-2xl bg-[#2563EB] px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">عرض الملف</a>
+              <a href="tel:+970000000000" class="inline-flex rounded-2xl border border-slate-200 px-5 py-3 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">اتصال</a>
+            </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+            <img src="assets/images/jobs/accountant.jpg" alt="محاسب يعمل في مكتب" class="h-40 w-full object-cover" />
+            <div class="p-5">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p class="inline-flex rounded-full bg-orange-50 px-3 py-1 text-xs font-extrabold text-[#EA580C]">وظيفة</p>
+                <h2 class="mt-2 text-xl font-extrabold text-slate-950">محاسب/ة</h2>
+                <p class="mt-1 text-sm font-bold text-slate-500">شركة مواد غذائية · منطقة السوق · دوام كامل</p>
+              </div>
+              <span class="w-fit rounded-full bg-green-50 px-3 py-1 text-xs font-extrabold text-[#16A34A]">التقديم مفتوح</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">فرصة محاسبة براتب معلن 1800 - 2500 شيكل وخبرة سنة إلى سنتين.</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <a href="job-single.html" class="inline-flex rounded-2xl bg-[#2563EB] px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">تفاصيل الوظيفة</a>
+              <a href="jobs.html" class="inline-flex rounded-2xl border border-slate-200 px-5 py-3 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">كل الوظائف</a>
+            </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+            <p class="inline-flex rounded-full bg-green-50 px-3 py-1 text-xs font-extrabold text-[#16A34A]">تصنيف</p>
+            <h2 class="mt-2 text-xl font-extrabold text-slate-950">مطاعم وكافيهات</h2>
+            <p class="mt-2 text-sm leading-7 text-slate-600">214 مكانا في قلقيلية، منها مطاعم مفتوحة الآن وخيارات مناسبة للعائلات.</p>
+            <a href="stores.html" class="mt-5 inline-flex rounded-2xl bg-[#2563EB] px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">تصفح التصنيف</a>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+            <p class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-extrabold text-[#2563EB]">خدمة</p>
+            <h2 class="mt-2 text-xl font-extrabold text-slate-950">توصيل طعام داخل قلقيلية</h2>
+            <p class="mt-2 text-sm leading-7 text-slate-600">خدمات توصيل من مطاعم ومحلات قريبة، مع أرقام تواصل واتجاهات واضحة.</p>
+            <a href="stores.html" class="mt-5 inline-flex rounded-2xl bg-[#2563EB] px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">عرض الخدمات</a>
+          </article>
+        </div>
+
+        <aside class="grid h-fit gap-6 lg:sticky lg:top-24">
+          <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="related-title">
+            <h2 id="related-title" class="text-xl font-extrabold text-slate-950">عمليات بحث مرتبطة</h2>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">مطاعم وسط البلد</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">مطاعم توصيل</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">مشاوي قلقيلية</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">وظائف مطاعم</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">مطاعم عائلية</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">كافيهات</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">وظائف محاسبة</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">محلات هواتف</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">صيانة جوالات</a>
+              <a href="search.html" class="rounded-2xl bg-slate-100 px-3 py-2 text-sm font-extrabold text-slate-700 hover:bg-slate-200 focus:outline-none focus:ring-4 focus:ring-blue-100">أطباء أسنان</a>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="empty-title">
+            <p class="text-sm font-extrabold text-slate-500">حالة عدم وجود نتائج</p>
+            <h2 id="empty-title" class="mt-2 text-xl font-extrabold text-slate-950">لم تجد ما تبحث عنه؟</h2>
+            <p class="mt-3 text-sm leading-6 text-slate-600">جرّب كلمات أبسط، اختر تصنيفا مختلفا، أو ابحث باسم المنطقة مثل "شارع نابلس".</p>
+            <div class="mt-5 grid gap-2">
+              <a href="search.html" class="inline-flex w-full items-center justify-center rounded-2xl bg-[#2563EB] px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">اقتراح إضافة متجر</a>
+              <a href="search.html" class="inline-flex w-full items-center justify-center rounded-2xl border border-slate-200 px-5 py-3 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">اقتراح إضافة خدمة</a>
+              <a href="search.html" class="inline-flex w-full items-center justify-center rounded-2xl border border-slate-200 px-5 py-3 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الإبلاغ عن نتيجة مفقودة</a>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <nav class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 px-2 py-2 backdrop-blur lg:hidden" aria-label="تنقل الجوال">
+      <div class="mx-auto grid max-w-md grid-cols-5 gap-1">
+        <a href="index.html" class="rounded-2xl px-2 py-2 text-center text-xs font-extrabold text-slate-600 focus:outline-none focus:ring-4 focus:ring-blue-100">الرئيسية</a>
+        <a href="stores.html" class="rounded-2xl px-2 py-2 text-center text-xs font-extrabold text-slate-600 focus:outline-none focus:ring-4 focus:ring-blue-100">الأعمال</a>
+        <a href="search.html" aria-current="page" class="rounded-2xl bg-[#2563EB] px-2 py-2 text-center text-xs font-extrabold text-white focus:outline-none focus:ring-4 focus:ring-blue-200">بحث</a>
+        <a href="jobs.html" class="rounded-2xl px-2 py-2 text-center text-xs font-extrabold text-slate-600 focus:outline-none focus:ring-4 focus:ring-blue-100">الوظائف</a>
+        <a href="login.html" class="rounded-2xl px-2 py-2 text-center text-xs font-extrabold text-slate-600 focus:outline-none focus:ring-4 focus:ring-blue-100">حسابي</a>
+      </div>
+    </nav>
+
+    <footer class="bg-white">
+      <div class="mx-auto grid max-w-7xl gap-8 border-t border-slate-200 px-4 pb-24 pt-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8 lg:pb-12">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="flex size-11 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+            </span>
+            <div>
+              <p class="text-lg font-extrabold text-slate-950">اسأل قلقيلية</p>
+              <p class="text-sm font-bold text-slate-500">دليل الأعمال والوظائف في المدينة</p>
+            </div>
+          </div>
+          <p class="mt-4 max-w-md text-sm leading-6 text-slate-600">
+            منصة محلية تساعد سكان قلقيلية والزوار على اكتشاف الخدمات الموثوقة وفرص العمل القريبة.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-sm font-extrabold text-slate-950">روابط سريعة</h2>
+          <div class="mt-4 grid gap-2 text-sm font-bold text-slate-600">
+            <a href="stores.html" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">الأعمال</a>
+            <a href="jobs.html" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">الوظائف</a>
+            <a href="search.html" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">البحث</a>
+            <a href="register.html" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">أضف نشاطك</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-sm font-extrabold text-slate-950">تواصل</h2>
+          <div class="mt-4 grid gap-2 text-sm font-bold text-slate-600">
+            <a href="mailto:hello@askqalqilya.ps" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">hello@askqalqilya.ps</a>
+            <a href="tel:+970000000000" class="hover:text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">+970 00 000 0000</a>
+            <span>قلقيلية، فلسطين</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+

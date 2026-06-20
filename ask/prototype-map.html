@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="خريطة واجهات اسأل قلقيلية التجريبية لمراجعة العميل قبل التطوير على Laravel." />
+    <title>خريطة النموذج التجريبي | اسأل قلقيلية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-[#F8FAFC] text-slate-900 antialiased [font-family:Tajawal,Inter,sans-serif]">
+    <header class="border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="تنقل خريطة النموذج">
+        <a href="index.html" class="flex items-center gap-3 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-100" aria-label="اسأل قلقيلية">
+          <span class="flex size-11 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+          </span>
+          <span>
+            <span class="block text-lg font-extrabold leading-5 text-slate-950">اسأل قلقيلية</span>
+            <span class="block text-xs font-bold text-slate-500">خريطة النموذج التجريبي</span>
+          </span>
+        </a>
+        <a href="index.html" class="inline-flex items-center justify-center rounded-2xl bg-[#2563EB] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">فتح الموقع</a>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <p class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-sm font-extrabold text-[#2563EB]">Client Review</p>
+        <h1 class="mt-4 text-3xl font-extrabold text-slate-950 sm:text-4xl">Ask Qalqilya - اسأل قلقيلية</h1>
+        <p class="mt-4 max-w-3xl text-base leading-7 text-slate-600">هذه نسخة واجهات تجريبية ثابتة للمراجعة قبل التطوير على Laravel.</p>
+      </section>
+
+      <div class="mt-6 grid gap-6 lg:grid-cols-2">
+        <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="public-pages">
+          <h2 id="public-pages" class="text-xl font-extrabold text-slate-950">Public Pages</h2>
+          <div class="mt-5 grid gap-3">
+            <a href="index.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الصفحة الرئيسية - index.html</a>
+            <a href="stores.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">دليل الأعمال - stores.html</a>
+            <a href="store.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">صفحة نشاط تجاري - store.html</a>
+            <a href="category.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">صفحة تصنيف - category.html</a>
+            <a href="search.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">البحث العام - search.html</a>
+          </div>
+        </section>
+
+        <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="jobs-pages">
+          <h2 id="jobs-pages" class="text-xl font-extrabold text-slate-950">Jobs Pages</h2>
+          <div class="mt-5 grid gap-3">
+            <a href="jobs.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">قائمة الوظائف - jobs.html</a>
+            <a href="job-single.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">تفاصيل وظيفة - job-single.html</a>
+          </div>
+        </section>
+
+        <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="auth-pages">
+          <h2 id="auth-pages" class="text-xl font-extrabold text-slate-950">Auth Pages</h2>
+          <div class="mt-5 grid gap-3">
+            <a href="login.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">تسجيل الدخول - login.html</a>
+            <a href="register.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">إنشاء حساب - register.html</a>
+          </div>
+        </section>
+
+        <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="dashboard-pages">
+          <h2 id="dashboard-pages" class="text-xl font-extrabold text-slate-950">Dashboards</h2>
+          <div class="mt-5 grid gap-3">
+            <a href="business-dashboard.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">لوحة صاحب النشاط - business-dashboard.html</a>
+            <a href="admin-dashboard.html" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">لوحة الإدارة - admin-dashboard.html</a>
+          </div>
+        </section>
+
+        <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 lg:col-span-2" aria-labelledby="documentation">
+          <h2 id="documentation" class="text-xl font-extrabold text-slate-950">Documentation</h2>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            <a href="DESIGN-SYSTEM.md" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">نظام التصميم - DESIGN-SYSTEM.md</a>
+            <a href="COMPONENT-INVENTORY.md" class="rounded-2xl border border-slate-200 p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">جرد المكونات - COMPONENT-INVENTORY.md</a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

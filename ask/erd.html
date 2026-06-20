@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>ERD — اسأل قلقيلية</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0a0f1e;
+  overflow: hidden;
+  user-select: none;
+}
+#viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  cursor: grab;
+}
+#viewport.grabbing { cursor: grabbing; }
+#canvas {
+  position: relative;
+  transform-origin: 0 0;
+  width: 2200px;
+  height: 1500px;
+}
+svg#lines {
+  position: absolute;
+  top: 0; left: 0;
+  width: 2200px;
+  height: 1500px;
+  pointer-events: none;
+}
+
+/* ── Table Boxes ── */
+.t {
+  position: absolute;
+  background: #131929;
+  border: 1px solid #1e2d45;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.t:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08);
+  z-index: 10;
+}
+.t-h {
+  padding: 9px 11px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.t-h .badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 600;
+  background: rgba(0,0,0,0.25);
+  padding: 1px 6px;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+.col {
+  display: flex;
+  align-items: center;
+  padding: 3.5px 11px;
+  font-size: 10px;
+  gap: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.025);
+}
+.col:last-child { border-bottom: none; }
+.col-icon { font-size: 9px; width: 12px; text-align: center; flex-shrink: 0; }
+.col-name { flex: 1; color: #94a3b8; font-weight: 500; }
+.col-type { color: #334155; font-size: 9px; white-space: nowrap; overflow: hidden; max-width: 90px; }
+.col.pk .col-name { color: #fbbf24; font-weight: 700; }
+.col.fk .col-name { color: #60a5fa; }
+.col.nullable .col-name { opacity: 0.6; }
+
+/* ── Header Colors by Phase ── */
+.h-blue   { background: linear-gradient(135deg, #1d3a8a 0%, #1e40af 100%); }
+.h-teal   { background: linear-gradient(135deg, #0f4c48 0%, #0d9488 100%); }
+.h-rose   { background: linear-gradient(135deg, #7f1d36 0%, #be185d 100%); }
+.h-amber  { background: linear-gradient(135deg, #78350f 0%, #b45309 100%); }
+.h-green  { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+.h-purple { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+
+/* ── UI Chrome ── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 52px;
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1e2d45;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  gap: 16px;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo h1 { font-size: 14px; font-weight: 800; color: #f8fafc; }
+.logo p { font-size: 10px; color: #475569; }
+.divider { width: 1px; height: 28px; background: #1e2d45; }
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+.btn {
+  background: #131929;
+  border: 1px solid #1e2d45;
+  color: #94a3b8;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.btn:hover { background: #1e2d45; color: #f1f5f9; }
+.btn-text {
+  background: #131929;
+  border: 1px solid #1e2d45;
+  color: #64748b;
+  padding: 0 10px;
+  height: 30px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn-text:hover { background: #1e2d45; color: #f1f5f9; }
+
+.legend {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid #1e2d45;
+  border-radius: 10px;
+  padding: 14px 16px;
+  z-index: 1000;
+}
+.legend h3 { color: #94a3b8; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+.li { display: flex; align-items: center; gap: 8px; font-size: 10.5px; color: #64748b; margin-bottom: 7px; }
+.li:last-child { margin-bottom: 0; }
+.ld { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.sep { height: 1px; background: #1e2d45; margin: 8px 0; }
+
+.stats {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid #1e2d45;
+  border-radius: 10px;
+  padding: 12px 16px;
+  z-index: 1000;
+  display: flex;
+  gap: 20px;
+}
+.stat { text-align: center; }
+.stat-val { font-size: 20px; font-weight: 800; color: #f8fafc; }
+.stat-lbl { font-size: 9px; color: #475569; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <span style="font-size:20px">🗂️</span>
+    <div>
+      <h1>ERD — اسأل قلقيلية</h1>
+      <p>مخطط قاعدة البيانات الكامل</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="zoom-controls">
+    <button class="btn" onclick="doZoom(0.15)">+</button>
+    <button class="btn-text" id="zoom-lbl">60%</button>
+    <button class="btn" onclick="doZoom(-0.15)">−</button>
+    <button class="btn-text" onclick="resetView()">↺ إعادة ضبط</button>
+    <button class="btn-text" onclick="fitAll()">⊡ ملاءمة الشاشة</button>
+  </div>
+</div>
+
+<div class="legend">
+  <h3>مفتاح الألوان</h3>
+  <div class="li"><div class="ld" style="background:#1e40af"></div> المرحلة الأولى — Core</div>
+  <div class="li"><div class="ld" style="background:#0d9488"></div> الوظائف — Jobs</div>
+  <div class="li"><div class="ld" style="background:#be185d"></div> الاشتراكات — Plans</div>
+  <div class="li"><div class="ld" style="background:#b45309"></div> جداول Pivot</div>
+  <div class="li"><div class="ld" style="background:#16a34a"></div> المرحلة الثانية</div>
+  <div class="li"><div class="ld" style="background:#7c3aed"></div> المرحلة الثالثة — AI</div>
+  <div class="sep"></div>
+  <div class="li">🔑 <span style="color:#fbbf24">Primary Key</span></div>
+  <div class="li">🔗 <span style="color:#60a5fa">Foreign Key</span></div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-val">19</div><div class="stat-lbl">جدول</div></div>
+  <div class="stat"><div class="stat-val">26</div><div class="stat-lbl">علاقة</div></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">مراحل</div></div>
+</div>
+
+<div id="viewport">
+  <div id="canvas">
+    <svg id="lines"></svg>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  TABLE DEFINITIONS
+// ══════════════════════════════════════════════════════
+const TABLES = [
+
+  // ─── PHASE 1: USERS / AUTH ───
+  {
+    id:'users', name:'users', icon:'👤', hdr:'h-blue', phase:'P1', x:60, y:120,
+    cols:[
+      {n:'id',           t:'BIGINT PK',              cls:'pk', i:'🔑'},
+      {n:'name',         t:'VARCHAR(100)',            cls:''},
+      {n:'email',        t:'VARCHAR(150) UNIQUE',     cls:''},
+      {n:'phone',        t:'VARCHAR(20)',             cls:'nullable'},
+      {n:'password',     t:'VARCHAR(255)',            cls:''},
+      {n:'role',         t:'ENUM admin|owner|user',  cls:''},
+      {n:'status',       t:'ENUM active|banned',     cls:''},
+      {n:'email_verified_at', t:'TIMESTAMP',         cls:'nullable'},
+      {n:'phone_verified_at', t:'TIMESTAMP',         cls:'nullable'},
+      {n:'avatar',       t:'VARCHAR(255)',            cls:'nullable'},
+      {n:'created_at',   t:'TIMESTAMP',              cls:''},
+      {n:'updated_at',   t:'TIMESTAMP',              cls:''},
+    ]
+  },
+
+  // ─── AREAS ───
+  {
+    id:'areas', name:'areas', icon:'📍', hdr:'h-blue', phase:'P1', x:60, y:550,
+    cols:[
+      {n:'id',         t:'BIGINT PK',   cls:'pk', i:'🔑'},
+      {n:'name',       t:'VARCHAR(100)',cls:''},
+      {n:'city',       t:'VARCHAR(100)',cls:''},
+      {n:'created_at', t:'TIMESTAMP',  cls:''},
+      {n:'updated_at', t:'TIMESTAMP',  cls:''},
+    ]
+  },
+
+  // ─── CATEGORIES ───
+  {
+    id:'categories', name:'categories', icon:'🏷️', hdr:'h-blue', phase:'P1', x:330, y:80,
+    cols:[
+      {n:'id',         t:'BIGINT PK',   cls:'pk', i:'🔑'},
+      {n:'parent_id',  t:'BIGINT FK',   cls:'fk nullable', i:'🔗'},
+      {n:'name',       t:'VARCHAR(100)',cls:''},
+      {n:'slug',       t:'VARCHAR(100)',cls:''},
+      {n:'icon',       t:'VARCHAR(50)', cls:'nullable'},
+      {n:'image',      t:'VARCHAR(255)',cls:'nullable'},
+      {n:'sort_order', t:'INT',         cls:''},
+      {n:'created_at', t:'TIMESTAMP',  cls:''},
+      {n:'updated_at', t:'TIMESTAMP',  cls:''},
+    ]
+  },
+
+  // ─── TAGS ───
+  {
+    id:'tags', name:'tags', icon:'🏷️', hdr:'h-blue', phase:'P1', x:330, y:720,
+    cols:[
+      {n:'id',   t:'BIGINT PK',   cls:'pk', i:'🔑'},
+      {n:'name', t:'VARCHAR(50)', cls:''},
+      {n:'slug', t:'VARCHAR(50)', cls:''},
+    ]
+  },
+
+  // ─── BUSINESSES ───
+  {
+    id:'businesses', name:'businesses', icon:'🏪', hdr:'h-blue', phase:'P1', x:630, y:150,
+    cols:[
+      {n:'id',           t:'BIGINT PK',              cls:'pk', i:'🔑'},
+      {n:'user_id',      t:'BIGINT FK',              cls:'fk nullable', i:'🔗'},
+      {n:'area_id',      t:'BIGINT FK',              cls:'fk', i:'🔗'},
+      {n:'name',         t:'VARCHAR(150)',            cls:''},
+      {n:'slug',         t:'VARCHAR(150) UNIQUE',    cls:''},
+      {n:'description',  t:'TEXT',                   cls:'nullable'},
+      {n:'phone',        t:'VARCHAR(20)',             cls:'nullable'},
+      {n:'phone2',       t:'VARCHAR(20)',             cls:'nullable'},
+      {n:'email',        t:'VARCHAR(150)',            cls:'nullable'},
+      {n:'website',      t:'VARCHAR(255)',            cls:'nullable'},
+      {n:'address',      t:'VARCHAR(255)',            cls:''},
+      {n:'latitude',     t:'DECIMAL(10,7)',           cls:'nullable'},
+      {n:'longitude',    t:'DECIMAL(10,7)',           cls:'nullable'},
+      {n:'logo',         t:'VARCHAR(255)',            cls:'nullable'},
+      {n:'cover',        t:'VARCHAR(255)',            cls:'nullable'},
+      {n:'status',       t:'ENUM pending|active|suspended', cls:''},
+      {n:'rating_avg',   t:'DECIMAL(3,2)',            cls:''},
+      {n:'reviews_count',t:'INT DEFAULT 0',          cls:''},
+      {n:'views_count',  t:'INT DEFAULT 0',          cls:''},
+      {n:'created_at',   t:'TIMESTAMP',              cls:''},
+      {n:'updated_at',   t:'TIMESTAMP',              cls:''},
+    ]
+  },
+
+  // ─── BUSINESS_IMAGES ───
+  {
+    id:'business_images', name:'business_images', icon:'🖼️', hdr:'h-blue', phase:'P1', x:630, y:800,
+    cols:[
+      {n:'id',          t:'BIGINT PK',   cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK',   cls:'fk', i:'🔗'},
+      {n:'image',       t:'VARCHAR(255)',cls:''},
+      {n:'sort_order',  t:'INT',         cls:''},
+      {n:'created_at',  t:'TIMESTAMP',  cls:''},
+    ]
+  },
+
+  // ─── WORKING_HOURS ───
+  {
+    id:'working_hours', name:'working_hours', icon:'🕐', hdr:'h-blue', phase:'P1', x:630, y:1010,
+    cols:[
+      {n:'id',          t:'BIGINT PK',             cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK',             cls:'fk', i:'🔗'},
+      {n:'day',         t:'ENUM sat|sun|mon…',     cls:''},
+      {n:'open_time',   t:'TIME',                  cls:'nullable'},
+      {n:'close_time',  t:'TIME',                  cls:'nullable'},
+      {n:'is_closed',   t:'BOOLEAN DEFAULT false', cls:''},
+    ]
+  },
+
+  // ─── PIVOT: business_category ───
+  {
+    id:'business_category', name:'business_category', icon:'🔀', hdr:'h-amber', phase:'PIVOT', x:440, y:480,
+    cols:[
+      {n:'id',          t:'BIGINT PK', cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK', cls:'fk', i:'🔗'},
+      {n:'category_id', t:'BIGINT FK', cls:'fk', i:'🔗'},
+    ]
+  },
+
+  // ─── PIVOT: business_tag ───
+  {
+    id:'business_tag', name:'business_tag', icon:'🔀', hdr:'h-amber', phase:'PIVOT', x:440, y:660,
+    cols:[
+      {n:'business_id', t:'BIGINT FK', cls:'fk', i:'🔗'},
+      {n:'tag_id',      t:'BIGINT FK', cls:'fk', i:'🔗'},
+    ]
+  },
+
+  // ─── JOBS ───
+  {
+    id:'jobs', name:'jobs', icon:'💼', hdr:'h-teal', phase:'P1', x:1020, y:150,
+    cols:[
+      {n:'id',          t:'BIGINT PK',                   cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK',                   cls:'fk', i:'🔗'},
+      {n:'title',       t:'VARCHAR(150)',                 cls:''},
+      {n:'description', t:'TEXT',                        cls:''},
+      {n:'type',        t:'ENUM full_time|part_time…',   cls:''},
+      {n:'location',    t:'VARCHAR(100)',                 cls:'nullable'},
+      {n:'salary',      t:'DECIMAL(10,2)',               cls:'nullable'},
+      {n:'salary_type', t:'ENUM fixed|negotiable',       cls:'nullable'},
+      {n:'requirements',t:'TEXT',                        cls:'nullable'},
+      {n:'status',      t:'ENUM active|closed|draft',    cls:''},
+      {n:'expires_at',  t:'DATE',                        cls:'nullable'},
+      {n:'created_at',  t:'TIMESTAMP',                   cls:''},
+      {n:'updated_at',  t:'TIMESTAMP',                   cls:''},
+    ]
+  },
+
+  // ─── JOB_APPLICATIONS ───
+  {
+    id:'job_applications', name:'job_applications', icon:'📋', hdr:'h-teal', phase:'P1', x:1020, y:600,
+    cols:[
+      {n:'id',           t:'BIGINT PK',                    cls:'pk', i:'🔑'},
+      {n:'job_id',       t:'BIGINT FK',                    cls:'fk', i:'🔗'},
+      {n:'user_id',      t:'BIGINT FK',                    cls:'fk nullable', i:'🔗'},
+      {n:'full_name',    t:'VARCHAR(100)',                  cls:''},
+      {n:'email',        t:'VARCHAR(150)',                  cls:''},
+      {n:'phone',        t:'VARCHAR(20)',                   cls:''},
+      {n:'cv_path',      t:'VARCHAR(255)',                  cls:'nullable'},
+      {n:'cover_letter', t:'TEXT',                         cls:'nullable'},
+      {n:'status',       t:'ENUM pending|reviewed|accepted', cls:''},
+      {n:'created_at',   t:'TIMESTAMP',                    cls:''},
+      {n:'updated_at',   t:'TIMESTAMP',                    cls:''},
+    ]
+  },
+
+  // ─── REVIEWS ───
+  {
+    id:'reviews', name:'reviews', icon:'⭐', hdr:'h-blue', phase:'P1', x:1020, y:960,
+    cols:[
+      {n:'id',             t:'BIGINT PK',               cls:'pk', i:'🔑'},
+      {n:'business_id',    t:'BIGINT FK',               cls:'fk', i:'🔗'},
+      {n:'user_id',        t:'BIGINT FK',               cls:'fk', i:'🔗'},
+      {n:'rating',         t:'TINYINT (1–5)',           cls:''},
+      {n:'title',          t:'VARCHAR(150)',             cls:'nullable'},
+      {n:'comment',        t:'TEXT',                    cls:'nullable'},
+      {n:'owner_reply',    t:'TEXT',                    cls:'nullable'},
+      {n:'owner_reply_at', t:'TIMESTAMP',              cls:'nullable'},
+      {n:'status',         t:'ENUM pending|approved|rejected', cls:''},
+      {n:'created_at',     t:'TIMESTAMP',              cls:''},
+      {n:'updated_at',     t:'TIMESTAMP',              cls:''},
+    ]
+  },
+
+  // ─── PLANS ───
+  {
+    id:'plans', name:'plans', icon:'📦', hdr:'h-rose', phase:'P1', x:1420, y:80,
+    cols:[
+      {n:'id',           t:'BIGINT PK',   cls:'pk', i:'🔑'},
+      {n:'name',         t:'VARCHAR(100)',cls:''},
+      {n:'slug',         t:'VARCHAR(100)',cls:''},
+      {n:'price',        t:'DECIMAL(10,2)',cls:''},
+      {n:'duration_days',t:'INT',         cls:''},
+      {n:'features',     t:'JSON',        cls:''},
+      {n:'max_images',   t:'INT',         cls:''},
+      {n:'is_active',    t:'BOOLEAN',     cls:''},
+      {n:'created_at',   t:'TIMESTAMP',  cls:''},
+      {n:'updated_at',   t:'TIMESTAMP',  cls:''},
+    ]
+  },
+
+  // ─── SUBSCRIPTIONS ───
+  {
+    id:'subscriptions', name:'subscriptions', icon:'🎫', hdr:'h-rose', phase:'P1', x:1420, y:380,
+    cols:[
+      {n:'id',          t:'BIGINT PK',              cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK',              cls:'fk', i:'🔗'},
+      {n:'plan_id',     t:'BIGINT FK',              cls:'fk', i:'🔗'},
+      {n:'start_date',  t:'DATE',                   cls:''},
+      {n:'end_date',    t:'DATE',                   cls:''},
+      {n:'status',      t:'ENUM active|expired|cancelled', cls:''},
+      {n:'created_at',  t:'TIMESTAMP',              cls:''},
+      {n:'updated_at',  t:'TIMESTAMP',              cls:''},
+    ]
+  },
+
+  // ─── PHASE 2 ───
+  {
+    id:'favorites', name:'favorites', icon:'❤️', hdr:'h-green', phase:'P2', x:1420, y:680,
+    cols:[
+      {n:'id',          t:'BIGINT PK', cls:'pk', i:'🔑'},
+      {n:'user_id',     t:'BIGINT FK', cls:'fk', i:'🔗'},
+      {n:'business_id', t:'BIGINT FK', cls:'fk', i:'🔗'},
+      {n:'created_at',  t:'TIMESTAMP', cls:''},
+    ]
+  },
+  {
+    id:'business_claims', name:'business_claims', icon:'📌', hdr:'h-green', phase:'P2', x:1420, y:880,
+    cols:[
+      {n:'id',          t:'BIGINT PK',             cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK',             cls:'fk', i:'🔗'},
+      {n:'user_id',     t:'BIGINT FK',             cls:'fk', i:'🔗'},
+      {n:'status',      t:'ENUM pending|approved|rejected', cls:''},
+      {n:'notes',       t:'TEXT',                  cls:'nullable'},
+      {n:'created_at',  t:'TIMESTAMP',             cls:''},
+      {n:'updated_at',  t:'TIMESTAMP',             cls:''},
+    ]
+  },
+  {
+    id:'business_views', name:'business_views', icon:'👁️', hdr:'h-green', phase:'P2', x:1420, y:1120,
+    cols:[
+      {n:'id',          t:'BIGINT PK',  cls:'pk', i:'🔑'},
+      {n:'business_id', t:'BIGINT FK',  cls:'fk', i:'🔗'},
+      {n:'source',      t:'VARCHAR(50)',cls:'nullable'},
+      {n:'ip',          t:'VARCHAR(45)',cls:'nullable'},
+      {n:'created_at',  t:'TIMESTAMP', cls:''},
+    ]
+  },
+
+  // ─── PHASE 3: AI ───
+  {
+    id:'search_logs', name:'search_logs', icon:'🤖', hdr:'h-purple', phase:'P3', x:1810, y:200,
+    cols:[
+      {n:'id',            t:'BIGINT PK',   cls:'pk', i:'🔑'},
+      {n:'user_id',       t:'BIGINT FK',   cls:'fk nullable', i:'🔗'},
+      {n:'query',         t:'VARCHAR(255)',cls:''},
+      {n:'results_count', t:'INT',         cls:''},
+      {n:'created_at',    t:'TIMESTAMP',  cls:''},
+    ]
+  },
+];
+
+// ══════════════════════════════════════════════════════
+//  RELATIONSHIPS  [fromTable, fromCol, toTable, toCol]
+// ══════════════════════════════════════════════════════
+const RELS = [
+  // users ←
+  ['businesses',     'user_id',      'users',      'id'],
+  ['reviews',        'user_id',      'users',      'id'],
+  ['job_applications','user_id',     'users',      'id'],
+  ['favorites',      'user_id',      'users',      'id'],
+  ['business_claims','user_id',      'users',      'id'],
+  ['search_logs',    'user_id',      'users',      'id'],
+  // areas ←
+  ['businesses',     'area_id',      'areas',      'id'],
+  // categories self-ref
+  ['categories',     'parent_id',    'categories', 'id'],
+  // businesses ←
+  ['business_images','business_id',  'businesses', 'id'],
+  ['working_hours',  'business_id',  'businesses', 'id'],
+  ['jobs',           'business_id',  'businesses', 'id'],
+  ['reviews',        'business_id',  'businesses', 'id'],
+  ['subscriptions',  'business_id',  'businesses', 'id'],
+  ['favorites',      'business_id',  'businesses', 'id'],
+  ['business_claims','business_id',  'businesses', 'id'],
+  ['business_views', 'business_id',  'businesses', 'id'],
+  // pivots
+  ['business_category','business_id','businesses', 'id'],
+  ['business_category','category_id','categories', 'id'],
+  ['business_tag',   'business_id',  'businesses', 'id'],
+  ['business_tag',   'tag_id',       'tags',       'id'],
+  // jobs
+  ['job_applications','job_id',      'jobs',       'id'],
+  // subscriptions
+  ['subscriptions',  'plan_id',      'plans',      'id'],
+  // reviews
+  ['reviews',        'business_id',  'businesses', 'id'],
+];
+
+// ══════════════════════════════════════════════════════
+//  BUILD TABLES
+// ══════════════════════════════════════════════════════
+const ROW_H = 23;
+const HDR_H = 36;
+const BOX_W = 220;
+
+const canvas  = document.getElementById('canvas');
+const svgEl   = document.getElementById('lines');
+const tMap    = {};
+
+TABLES.forEach(t => {
+  tMap[t.id] = t;
+  t.w = BOX_W;
+  t.h = HDR_H + t.cols.length * ROW_H + 2;
+
+  const div = document.createElement('div');
+  div.className = 't';
+  div.id = 'tb-' + t.id;
+  div.style.cssText = `left:${t.x}px;top:${t.y}px;width:${t.w}px`;
+
+  const badge = t.phase === 'PIVOT' ? 'PIVOT' : t.phase;
+  const colsHTML = t.cols.map(c => `
+    <div class="col ${c.cls||''}">
+      <span class="col-icon">${c.i||'·'}</span>
+      <span class="col-name">${c.n}</span>
+      <span class="col-type">${c.t}</span>
+    </div>`).join('');
+
+  div.innerHTML = `
+    <div class="t-h ${t.hdr}">
+      <span>${t.icon}</span>
+      <span>${t.name}</span>
+      <span class="badge">${badge}</span>
+    </div>
+    <div class="t-body">${colsHTML}</div>`;
+
+  canvas.appendChild(div);
+});
+
+// ══════════════════════════════════════════════════════
+//  DRAW RELATIONSHIPS
+// ══════════════════════════════════════════════════════
+const HDR_COLORS = {
+  'h-blue':   '#3b82f6',
+  'h-teal':   '#14b8a6',
+  'h-rose':   '#f43f5e',
+  'h-amber':  '#f59e0b',
+  'h-green':  '#22c55e',
+  'h-purple': '#a78bfa',
+};
+
+// Deduplicate rels
+const drawnRels = new Set();
+
+RELS.forEach(([fId, fCol, tId, tCol]) => {
+  const key = `${fId}.${fCol}→${tId}.${tCol}`;
+  if (drawnRels.has(key)) return;
+  drawnRels.add(key);
+
+  const F = tMap[fId];
+  const T = tMap[tId];
+  if (!F || !T) return;
+
+  const fi = F.cols.findIndex(c => c.n === fCol);
+  const ti = T.cols.findIndex(c => c.n === tCol);
+
+  const fy = F.y + HDR_H + (fi + 0.5) * ROW_H;
+  const ty = T.y + HDR_H + (ti + 0.5) * ROW_H;
+
+  let x1, x2, y1 = fy, y2 = ty;
+
+  if (fId === tId) {
+    // self-ref loop
+    x1 = F.x + F.w;
+    x2 = F.x + F.w;
+    const loopX = x1 + 40;
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    const fy2 = F.y + HDR_H / 2;
+    path.setAttribute('d', `M ${x1} ${fy} C ${loopX} ${fy} ${loopX} ${fy2} ${x2 - F.w + 20} ${fy2}`);
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke', HDR_COLORS[F.hdr] || '#60a5fa');
+    path.setAttribute('stroke-width','1.5');
+    path.setAttribute('stroke-opacity','0.45');
+    path.setAttribute('stroke-dasharray','5,3');
+    svgEl.appendChild(path);
+    return;
+  }
+
+  const fRight = F.x + F.w;
+  const tRight = T.x + T.w;
+  const fCx = F.x + F.w / 2;
+  const tCx = T.x + T.w / 2;
+
+  // Decide which sides to connect
+  if (fCx <= tCx) {
+    x1 = fRight; x2 = T.x;
+  } else {
+    x1 = F.x; x2 = tRight;
+  }
+
+  const mx = (x1 + x2) / 2;
+  const color = HDR_COLORS[F.hdr] || '#60a5fa';
+
+  const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+  path.setAttribute('d', `M ${x1} ${y1} C ${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`);
+  path.setAttribute('fill','none');
+  path.setAttribute('stroke', color);
+  path.setAttribute('stroke-width','1.5');
+  path.setAttribute('stroke-opacity','0.4');
+  svgEl.appendChild(path);
+
+  // Arrow head
+  const arr = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  const as = 5;
+  let pts;
+  if (fCx <= tCx) {
+    pts = `${x2},${y2} ${x2-as},${y2-as/1.5} ${x2-as},${y2+as/1.5}`;
+  } else {
+    pts = `${x2},${y2} ${x2+as},${y2-as/1.5} ${x2+as},${y2+as/1.5}`;
+  }
+  arr.setAttribute('points', pts);
+  arr.setAttribute('fill', color);
+  arr.setAttribute('fill-opacity','0.65');
+  svgEl.appendChild(arr);
+});
+
+// ══════════════════════════════════════════════════════
+//  ZOOM / PAN
+// ══════════════════════════════════════════════════════
+let scale = 0.62, panX = 30, panY = 70, dragging = false, lx, ly;
+const vp = document.getElementById('viewport');
+const lbl = document.getElementById('zoom-lbl');
+
+function applyT() {
+  canvas.style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
+  lbl.textContent = Math.round(scale * 100) + '%';
+}
+
+function doZoom(d) {
+  scale = Math.max(0.15, Math.min(2.5, scale + d));
+  applyT();
+}
+
+function resetView() {
+  scale = 0.62; panX = 30; panY = 70; applyT();
+}
+
+function fitAll() {
+  const vw = vp.clientWidth;
+  const vh = vp.clientHeight - 52;
+  const cw = 2200, ch = 1500;
+  scale = Math.min(vw / cw, vh / ch) * 0.92;
+  panX = (vw - cw * scale) / 2;
+  panY = 60 + (vh - ch * scale) / 2;
+  applyT();
+}
+
+vp.addEventListener('mousedown', e => {
+  if (e.target.closest('.t')) return;
+  dragging = true; lx = e.clientX; ly = e.clientY;
+  vp.classList.add('grabbing');
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  panX += e.clientX - lx; panY += e.clientY - ly;
+  lx = e.clientX; ly = e.clientY; applyT();
+});
+window.addEventListener('mouseup', () => { dragging = false; vp.classList.remove('grabbing'); });
+vp.addEventListener('wheel', e => {
+  e.preventDefault();
+  doZoom(e.deltaY > 0 ? -0.08 : 0.08);
+}, { passive: false });
+
+// Touch support
+let lastTouchDist = null;
+vp.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) { lx = e.touches[0].clientX; ly = e.touches[0].clientY; dragging = true; }
+  if (e.touches.length === 2) { lastTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }
+}, { passive: true });
+vp.addEventListener('touchmove', e => {
+  if (e.touches.length === 1 && dragging) {
+    panX += e.touches[0].clientX - lx; panY += e.touches[0].clientY - ly;
+    lx = e.touches[0].clientX; ly = e.touches[0].clientY; applyT();
+  }
+  if (e.touches.length === 2 && lastTouchDist !== null) {
+    const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    scale = Math.max(0.15, Math.min(2.5, scale * (d / lastTouchDist)));
+    lastTouchDist = d; applyT();
+  }
+}, { passive: true });
+vp.addEventListener('touchend', () => { dragging = false; lastTouchDist = null; });
+
+applyT();
+</script>
+</body>
+</html>

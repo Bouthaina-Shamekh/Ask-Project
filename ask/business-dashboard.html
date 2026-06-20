@@ -1,0 +1,335 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="لوحة تحكم أصحاب الأعمال في اسأل قلقيلية لإدارة بيانات النشاط، الصور، الخدمات، الوظائف، المراجعات، والاشتراك." />
+    <title>لوحة نشاطك | اسأل قلقيلية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-[#F8FAFC] text-slate-900 antialiased [font-family:Tajawal,Inter,sans-serif]">
+    <div class="min-h-screen lg:grid lg:grid-cols-[280px_1fr]">
+      <!-- Dashboard Sidebar -->
+      <aside class="hidden border-l border-slate-200 bg-white lg:sticky lg:top-0 lg:block lg:h-screen lg:overflow-y-auto">
+        <div class="flex h-full flex-col p-5">
+          <a href="index.html" class="flex items-center gap-3 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-100" aria-label="اسأل قلقيلية">
+            <span class="flex size-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+            </span>
+            <span>
+              <span class="block text-lg font-extrabold leading-5 text-slate-950">اسأل قلقيلية</span>
+              <span class="block text-xs font-bold text-slate-500">لوحة أصحاب الأعمال</span>
+            </span>
+          </a>
+
+          <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-sm font-extrabold text-slate-950">مطعم أبو العبد</p>
+            <p class="mt-1 text-xs font-bold text-slate-500">مطاعم ومشاوي · وسط البلد</p>
+            <span class="mt-3 inline-flex rounded-full bg-green-50 px-3 py-1 text-xs font-extrabold text-[#16A34A]">مفعل</span>
+          </div>
+
+          <nav class="mt-6 grid gap-1" aria-label="تنقل لوحة التحكم">
+            <a href="business-dashboard.html" aria-current="page" class="rounded-2xl bg-blue-50 px-4 py-3 text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">نظرة عامة</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">بيانات النشاط</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الصور والمعرض</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الخدمات / المنتجات</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">أوقات العمل</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الوظائف</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">المراجعات</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الاشتراك</a>
+            <a href="business-dashboard.html" class="rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">الإعدادات</a>
+          </nav>
+
+          <a href="login.html" class="mt-auto rounded-2xl border border-slate-200 px-4 py-3 text-center text-sm font-extrabold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">تسجيل الخروج</a>
+        </div>
+      </aside>
+
+      <div class="min-w-0">
+        <!-- Dashboard Topbar -->
+        <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
+          <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+            <div class="flex min-w-0 items-center gap-3">
+              <a href="index.html" class="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-100" aria-label="اسأل قلقيلية">
+                <img src="assets/ask-qalqilya-logo.svg" alt="" class="h-full w-full object-contain p-1.5" />
+              </a>
+              <div class="min-w-0">
+                <p class="text-xs font-bold text-slate-500">مطعم أبو العبد</p>
+                <h1 class="truncate text-xl font-extrabold text-slate-950 sm:text-2xl">لوحة نشاطك</h1>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="hidden rounded-full bg-green-50 px-3 py-1.5 text-xs font-extrabold text-[#16A34A] sm:inline-flex">مفعل</span>
+              <a href="store.html" class="inline-flex items-center justify-center rounded-2xl bg-[#2563EB] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">عرض صفحة النشاط</a>
+            </div>
+          </div>
+          <div class="mx-auto max-w-7xl px-4 pb-3 sm:px-6 lg:hidden">
+            <button type="button" class="inline-flex h-11 w-full items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 px-4 text-sm font-extrabold text-[#2563EB] shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-100">
+              إدارة الأقسام
+            </button>
+          </div>
+        </header>
+
+        <main class="mx-auto max-w-7xl px-4 py-6 pb-10 sm:px-6 lg:px-8 lg:py-8">
+          <nav class="mb-6 flex gap-2 overflow-x-auto pb-1 lg:hidden" aria-label="تنقل لوحة التحكم المختصر">
+            <a href="business-dashboard.html" aria-current="page" class="shrink-0 rounded-full bg-blue-50 px-4 py-2 text-sm font-extrabold text-[#2563EB]">نظرة عامة</a>
+            <a href="business-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">بيانات النشاط</a>
+            <a href="business-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">الصور</a>
+            <a href="business-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">الخدمات</a>
+            <a href="business-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">الوظائف</a>
+            <a href="business-dashboard.html" class="shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700">المراجعات</a>
+          </nav>
+
+          <div class="grid gap-6 xl:grid-cols-[1fr_360px]">
+            <div class="grid gap-6">
+              <!-- Dashboard Alert -->
+              <section class="rounded-2xl border border-orange-200 bg-orange-50 p-5 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-6" aria-labelledby="dashboard-alert-title">
+                <div>
+                  <p class="text-xs font-extrabold text-[#EA580C]">تنبيه مهم</p>
+                  <h2 id="dashboard-alert-title" class="mt-2 text-xl font-extrabold text-slate-950">يتطلب نشاطك بعض التحديثات</h2>
+                  <p class="mt-2 text-sm leading-6 text-slate-700">أضف المزيد من الصور والخدمات لزيادة فرص ظهور نشاطك في نتائج البحث.</p>
+                </div>
+                <a href="business-dashboard.html" class="mt-4 inline-flex h-11 w-full items-center justify-center rounded-2xl bg-[#EA580C] px-5 text-sm font-extrabold text-white hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-100 sm:mt-0 sm:w-auto">إكمال الملف</a>
+              </section>
+
+              <!-- Profile Completion -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="completion-title">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="inline-flex rounded-full bg-orange-50 px-3 py-1 text-xs font-extrabold text-[#EA580C]">يحتاج بعض التحسينات</p>
+                    <h2 id="completion-title" class="mt-3 text-2xl font-extrabold text-slate-950">ملف نشاطك مكتمل 78%</h2>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">أكمل البيانات والصور حتى يظهر نشاطك بثقة أكبر في نتائج البحث.</p>
+                  </div>
+                  <a href="business-dashboard.html" class="inline-flex h-11 items-center justify-center rounded-2xl border border-slate-200 px-4 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">إكمال الملف</a>
+                </div>
+                <div class="mt-5 h-3 overflow-hidden rounded-full bg-slate-100" aria-label="نسبة اكتمال الملف 78%">
+                  <div class="h-full w-[78%] rounded-full bg-[#2563EB]"></div>
+                </div>
+                <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                  <p class="text-sm font-bold text-slate-700">✓ تم إضافة الشعار</p>
+                  <p class="text-sm font-bold text-slate-700">✓ تم إضافة رقم الهاتف</p>
+                  <p class="text-sm font-bold text-slate-700">✓ تم إضافة أوقات العمل</p>
+                  <p class="text-sm font-bold text-[#EA580C]">أضف 3 صور إضافية</p>
+                  <p class="text-sm font-bold text-[#EA580C]">أضف قائمة الخدمات</p>
+                </div>
+              </section>
+
+              <!-- Stats Cards -->
+              <section aria-labelledby="stats-title">
+                <h2 id="stats-title" class="sr-only">إحصائيات النشاط</h2>
+                <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-bold text-slate-500">مشاهدات هذا الأسبوع</p>
+                    <p class="mt-2 text-3xl font-extrabold text-slate-950">248</p>
+                    <p class="mt-2 text-xs font-bold text-[#16A34A]">+12% عن الأسبوع السابق</p>
+                  </article>
+                  <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-bold text-slate-500">نقرات الاتصال</p>
+                    <p class="mt-2 text-3xl font-extrabold text-slate-950">37</p>
+                    <p class="mt-2 text-xs font-bold text-slate-500">من صفحة النشاط</p>
+                  </article>
+                  <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-bold text-slate-500">نقرات واتساب</p>
+                    <p class="mt-2 text-3xl font-extrabold text-slate-950">19</p>
+                    <p class="mt-2 text-xs font-bold text-slate-500">طلبات واستفسارات</p>
+                  </article>
+                  <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-bold text-slate-500">متوسط التقييم</p>
+                    <p class="mt-2 text-3xl font-extrabold text-slate-950">4.8</p>
+                    <p class="mt-2 text-xs font-bold text-[#EA580C]">من 126 مراجعة</p>
+                  </article>
+                </div>
+              </section>
+
+              <!-- Quick Actions -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="quick-actions-title">
+                <div class="flex items-center justify-between gap-3">
+                  <h2 id="quick-actions-title" class="text-xl font-extrabold text-slate-950">إجراءات سريعة</h2>
+                  <span class="text-xs font-bold text-slate-500">الأكثر استخداماً</span>
+                </div>
+                <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <a href="business-dashboard.html" class="rounded-2xl border border-blue-100 bg-blue-50 p-4 font-extrabold text-[#2563EB] hover:bg-blue-100 focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل بيانات النشاط</a>
+                  <a href="business-dashboard.html" class="rounded-2xl border border-slate-200 bg-white p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">رفع صور جديدة</a>
+                  <a href="business-dashboard.html" class="rounded-2xl border border-slate-200 bg-white p-4 font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">إضافة خدمة</a>
+                  <a href="jobs.html" class="rounded-2xl border border-green-100 bg-green-50 p-4 font-extrabold text-[#16A34A] hover:bg-green-100 focus:outline-none focus:ring-4 focus:ring-green-100">نشر وظيفة</a>
+                </div>
+              </section>
+
+              <div class="grid gap-6 xl:grid-cols-2">
+                <!-- Business Info -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="business-info-title">
+                  <div class="flex items-center justify-between gap-3">
+                    <h2 id="business-info-title" class="text-xl font-extrabold text-slate-950">بيانات النشاط</h2>
+                    <a href="business-dashboard.html" class="text-sm font-extrabold text-[#2563EB] hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل</a>
+                  </div>
+                  <dl class="mt-5 grid gap-4 text-sm">
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">اسم النشاط</dt><dd class="font-extrabold text-slate-950">مطعم أبو العبد</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">التصنيف</dt><dd class="font-extrabold text-slate-950">مطاعم ومشاوي</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">المنطقة</dt><dd class="font-extrabold text-slate-950">وسط البلد</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">الهاتف</dt><dd class="font-extrabold text-slate-950">09-294-1122</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">العنوان</dt><dd class="text-left font-extrabold text-slate-950">شارع نابلس، قرب السوق</dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">الحالة</dt><dd><span class="rounded-full bg-green-50 px-3 py-1 text-xs font-extrabold text-[#16A34A]">مفعل</span></dd></div>
+                    <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">آخر تحديث</dt><dd class="font-extrabold text-slate-950">اليوم</dd></div>
+                  </dl>
+                </section>
+
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="hours-title">
+                  <div class="flex items-center justify-between gap-3">
+                    <h2 id="hours-title" class="text-xl font-extrabold text-slate-950">أوقات العمل</h2>
+                    <a href="business-dashboard.html" class="text-sm font-extrabold text-[#2563EB] hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">تعديل أوقات العمل</a>
+                  </div>
+                  <div class="mt-5 grid gap-3 text-sm font-bold text-slate-700">
+                    <p class="flex justify-between gap-4"><span>السبت - الخميس</span><span>10:00 صباحاً - 11:30 مساءً</span></p>
+                    <p class="flex justify-between gap-4"><span>الجمعة</span><span>2:00 مساءً - 11:30 مساءً</span></p>
+                    <p class="mt-2 rounded-2xl bg-green-50 p-3 text-[#16A34A]">مفتوح الآن · يغلق الساعة 11:30 مساءً</p>
+                  </div>
+                </section>
+              </div>
+
+              <div class="grid gap-6 xl:grid-cols-2">
+                <!-- Gallery Preview -->
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="gallery-title">
+                  <div class="flex items-center justify-between gap-3">
+                    <h2 id="gallery-title" class="text-xl font-extrabold text-slate-950">الصور والمعرض</h2>
+                    <a href="business-dashboard.html" class="text-sm font-extrabold text-[#2563EB] hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">إدارة الصور</a>
+                  </div>
+                  <div class="mt-5 grid grid-cols-3 gap-3">
+                    <img src="assets/images/businesses/restaurant-interior.jpg" alt="صورة من داخل المطعم" class="aspect-square rounded-2xl object-cover" />
+                    <img src="assets/images/businesses/restaurant-food.jpg" alt="وجبة مشاوي" class="aspect-square rounded-2xl object-cover" />
+                    <img src="assets/images/businesses/restaurant-menu.jpg" alt="قائمة الطعام" class="aspect-square rounded-2xl object-cover" />
+                    <img src="assets/images/businesses/restaurant-team.jpg" alt="فريق العمل" class="aspect-square rounded-2xl object-cover" />
+                    <img src="assets/images/businesses/cafe-interior.jpg" alt="جلسات داخلية" class="aspect-square rounded-2xl object-cover" />
+                    <div class="aspect-square rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 text-center text-sm font-extrabold text-slate-400 flex items-center justify-center">إضافة</div>
+                  </div>
+                </section>
+
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="services-title">
+                  <div class="flex items-center justify-between gap-3">
+                    <h2 id="services-title" class="text-xl font-extrabold text-slate-950">الخدمات / المنتجات</h2>
+                    <a href="business-dashboard.html" class="text-sm font-extrabold text-[#2563EB] hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100">إضافة خدمة</a>
+                  </div>
+                  <div class="mt-5 grid gap-3">
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">مشاوي يومية</h3>
+                      <p class="mt-1 text-sm leading-6 text-slate-600">وجبات مشاوي طازجة للعائلات والأفراد.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">وجبات عائلية</h3>
+                      <p class="mt-1 text-sm leading-6 text-slate-600">خيارات مناسبة للتجمعات والمناسبات الصغيرة.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 p-4">
+                      <h3 class="font-extrabold text-slate-950">توصيل قريب</h3>
+                      <p class="mt-1 text-sm leading-6 text-slate-600">توصيل داخل وسط البلد والمناطق القريبة.</p>
+                    </article>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Reviews Preview -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="reviews-title">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <h2 id="reviews-title" class="text-xl font-extrabold text-slate-950">المراجعات</h2>
+                    <p class="mt-1 text-sm font-bold text-slate-500">متوسط التقييم 4.8 من 126 مراجعة</p>
+                  </div>
+                  <a href="business-dashboard.html" class="inline-flex h-11 items-center justify-center rounded-2xl border border-slate-200 px-4 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">عرض كل المراجعات</a>
+                </div>
+                <div class="mt-5 grid gap-4 lg:grid-cols-3">
+                  <article class="rounded-2xl bg-slate-50 p-4">
+                    <p class="font-extrabold text-slate-950">أحمد ناصر</p>
+                    <p class="mt-1 text-sm font-bold text-[#EA580C]">★★★★★</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">الطعام ممتاز والتوصيل سريع. تجربة موثوقة.</p>
+                    <a href="business-dashboard.html" class="mt-3 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">الرد على المراجعة</a>
+                  </article>
+                  <article class="rounded-2xl bg-slate-50 p-4">
+                    <p class="font-extrabold text-slate-950">سما خالد</p>
+                    <p class="mt-1 text-sm font-bold text-[#EA580C]">★★★★★</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">الوجبات العائلية مرتبة والأسعار واضحة.</p>
+                    <a href="business-dashboard.html" class="mt-3 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">الرد على المراجعة</a>
+                  </article>
+                  <article class="rounded-2xl bg-slate-50 p-4">
+                    <p class="font-extrabold text-slate-950">محمود عودة</p>
+                    <p class="mt-1 text-sm font-bold text-[#EA580C]">★★★★☆</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">خدمة جيدة وأتمنى إضافة صور أكثر للمنيو.</p>
+                    <a href="business-dashboard.html" class="mt-3 inline-flex text-sm font-extrabold text-[#2563EB] focus:outline-none focus:ring-4 focus:ring-blue-100">الرد على المراجعة</a>
+                  </article>
+                </div>
+              </section>
+            </div>
+
+            <aside class="grid content-start gap-6">
+              <!-- Search Visibility -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="search-visibility-title">
+                <p class="inline-flex rounded-full bg-green-50 px-3 py-1 text-xs font-extrabold text-[#16A34A]">ظاهر</p>
+                <h2 id="search-visibility-title" class="mt-3 text-xl font-extrabold text-slate-950">حالة الظهور في البحث</h2>
+                <p class="mt-3 text-sm font-extrabold text-[#16A34A]">✓ ظاهر في نتائج البحث</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">تم تحديث بيانات النشاط بنجاح.</p>
+              </section>
+
+              <!-- Jobs Widget -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="jobs-title">
+                <div class="flex items-center justify-between gap-3">
+                  <h2 id="jobs-title" class="text-xl font-extrabold text-slate-950">الوظائف</h2>
+                  <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-extrabold text-[#2563EB]">2 نشطة</span>
+                </div>
+                <p class="mt-3 text-sm leading-6 text-slate-600">يمكنك جذب موظفين محليين مباشرة من خلال منصة اسأل قلقيلية.</p>
+                <article class="mt-5 rounded-2xl border border-slate-200 p-4">
+                  <p class="text-sm font-bold text-slate-500">آخر وظيفة</p>
+                  <h3 class="mt-1 font-extrabold text-slate-950">موظف مبيعات</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-600">دوام كامل · وسط البلد · ينتهي في 15 يونيو 2026</p>
+                </article>
+                <a href="jobs.html" class="mt-4 inline-flex h-12 w-full items-center justify-center rounded-2xl bg-[#2563EB] px-5 text-sm font-extrabold text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">نشر وظيفة جديدة</a>
+              </section>
+
+              <!-- Subscription Card -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="subscription-title">
+                <p class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-700">الباقة الحالية</p>
+                <h2 id="subscription-title" class="mt-3 text-2xl font-extrabold text-slate-950">الباقة الفضية</h2>
+                <dl class="mt-5 grid gap-3 text-sm">
+                  <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">حالة الاشتراك</dt><dd class="font-extrabold text-[#16A34A]">فعال</dd></div>
+                  <div class="flex justify-between gap-4"><dt class="font-bold text-slate-500">ينتهي في</dt><dd class="font-extrabold text-slate-950">30 يونيو 2026</dd></div>
+                </dl>
+                <div class="mt-5 grid gap-4 rounded-2xl bg-slate-50 p-4">
+                  <div>
+                    <h3 class="text-sm font-extrabold text-slate-950">مميزات الباقة الحالية:</h3>
+                    <ul class="mt-3 grid gap-2 text-sm font-bold text-slate-700">
+                      <li>✓ معرض صور</li>
+                      <li>✓ صفحة نشاط</li>
+                      <li>✓ نشر وظائف</li>
+                    </ul>
+                  </div>
+                  <div class="border-t border-slate-200 pt-4">
+                    <h3 class="text-sm font-extrabold text-slate-950">عند الترقية:</h3>
+                    <ul class="mt-3 grid gap-2 text-sm font-bold text-slate-700">
+                      <li>✓ أولوية ظهور</li>
+                      <li>✓ عدد صور أكبر</li>
+                      <li>✓ مميزات إضافية</li>
+                    </ul>
+                  </div>
+                </div>
+                <a href="business-dashboard.html" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-2xl bg-[#EA580C] px-5 text-sm font-extrabold text-white hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-100">ترقية الباقة</a>
+              </section>
+
+              <!-- Support Widget -->
+              <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="support-title">
+                <h2 id="support-title" class="text-xl font-extrabold text-slate-950">تحتاج مساعدة في إدارة نشاطك؟</h2>
+                <p class="mt-2 text-sm leading-6 text-slate-600">فريق اسأل قلقيلية يساعدك في تحديث البيانات، الصور، والوظائف.</p>
+                <span class="mt-4 inline-flex rounded-full bg-green-50 px-3 py-1.5 text-xs font-extrabold text-[#16A34A]">متوسط وقت الرد: أقل من ساعة</span>
+                <div class="mt-5 grid gap-3">
+                  <a href="business-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl bg-[#16A34A] px-5 text-sm font-extrabold text-white hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-100">تواصل واتساب</a>
+                  <a href="business-dashboard.html" class="inline-flex h-12 items-center justify-center rounded-2xl border border-slate-200 px-5 text-sm font-extrabold text-slate-800 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-100">دليل الاستخدام</a>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+
