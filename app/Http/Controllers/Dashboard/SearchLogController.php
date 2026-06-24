@@ -2,64 +2,37 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\SearchLog;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SearchLogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $searchLogs = SearchLog::with('user')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('dashboard.search_logs.index', compact('searchLogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function destroy($id)
     {
-        //
-    }
+        $searchLogs = SearchLog::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $searchLogs->delete();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $request = request();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        if ($request->ajax()) {
+            return response()->json([
+                'message' => 'Item deleted successfully.'
+            ]);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()
+            ->route('dashboard.search-log.index')
+            ->with('success', __('Item deleted successfully.'));
     }
 }

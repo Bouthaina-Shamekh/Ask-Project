@@ -2,64 +2,92 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\Area;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AreaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        // $this->authorize('view', Area::class);
+
+        $areas = Area::orderBy('id', 'desc')->get();
+
+        return view('dashboard.areas.index', compact('areas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        // $this->authorize('create', Area::class);
+
+        $areas = new Area();
+
+        return view('dashboard.areas.create', compact('areas'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // $this->authorize('create', Area::class);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:areas,slug',
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        Area::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('dashboard.area.index')->with('success', __('Item created successfully.'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit($id)
     {
-        //
+        // $this->authorize('edit', Area::class);
+
+        $areas = Area::findOrFail($id);
+
+        return view('dashboard.areas.edit', compact('areas'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, $id)
     {
-        //
+        // $this->authorize('edit', Area::class);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:areas,slug,' . $id,
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        $areas = Area::findOrFail($id);
+
+        $areas->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('dashboard.area.index')->with('success', __('Item updated successfully.'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy($id)
     {
-        //
-    }
+        // $this->authorize('delete', Area::class);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $areas = Area::findOrFail($id);
+        $areas->delete();
+
+        $request = request();
+
+        if ($request->ajax()) {
+            return response()->json(['message' => 'Item deleted successfully.']);
+        }
+
+        return redirect()->route('dashboard.area.index')->with('success', __('Item deleted successfully.'));
     }
 }
