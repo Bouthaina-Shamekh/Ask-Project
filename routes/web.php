@@ -56,3 +56,6 @@ Route::middleware('auth')->group(function () {
         ->middleware(EnsureUserIsAdmin::class)
         ->name('admin.dashboard');
 });
+
+
+require __DIR__.'/dashboard.php';
