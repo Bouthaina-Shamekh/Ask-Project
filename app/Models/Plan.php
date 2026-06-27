@@ -22,4 +22,9 @@ public function subscriptions()
 {
     return $this->hasMany(Subscription::class);
 }
+
+public function getBusinessesLimitLabelAttribute()
+{
+    return $this->businesses_limit ?? 'Unlimited';
+}
 }

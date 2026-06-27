@@ -10,11 +10,11 @@
         </li>
 
         <li class="breadcrumb-item">
-            <a href="{{ route('dashboard.business-service.index') }}">Business Services</a>
+            <a href="{{ route('dashboard.plan.index') }}">Plans</a>
         </li>
 
         <li class="breadcrumb-item" aria-current="page">
-            Add Business Service
+            Edit Plan
         </li>
     </x-slot:breadcrumbs>
 
@@ -25,28 +25,29 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h5>Add Business Service</h5>
+                    <h5>Edit Plan</h5>
                 </div>
 
                 <div class="card-body">
 
-                    <form action="{{ route('dashboard.business-service.store') }}"
+                    <form action="{{ route('dashboard.plan.update', $plans->id) }}"
                           method="POST">
 
                         @csrf
+                        @method('PUT')
 
-                        @include('dashboard.business_services._form')
+                        @include('dashboard.plans._form')
 
                         <div class="col-span-12 text-left">
 
-                            <a href="{{ route('dashboard.business-service.index') }}"
+                            <a href="{{ route('dashboard.plan.index') }}"
                                class="btn btn-secondary">
                                 Back
                             </a>
 
                             <button type="submit"
                                     class="btn btn-primary">
-                                {{ $btn_label ?? 'Add' }}
+                                Update
                             </button>
 
                         </div>

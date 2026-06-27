@@ -10,7 +10,7 @@
         </li>
 
         <li class="breadcrumb-item" aria-current="page">
-            Business Services
+            Business Working Hours
         </li>
     </x-slot:breadcrumbs>
 
@@ -21,13 +21,13 @@
             <div class="card-header d-flex justify-content-between">
 
                 <div class="row">
-                    <h5>Business Services</h5>
+                    <h5>Business Working Hours</h5>
                 </div>
 
                 <div>
-                    <a href="{{ route('dashboard.business-service.create') }}"
-                        class="btn btn-primary">
-                        Add Business Service
+                    <a href="{{ route('dashboard.business-working-hour.create') }}"
+                       class="btn btn-primary">
+                        Add Business Working Hour
                     </a>
                 </div>
 
@@ -38,7 +38,7 @@
                 <div class="dt-responsive table-responsive">
 
                     <table id="footer-search"
-                        class="table table-striped table-bordered nowrap">
+                           class="table table-striped table-bordered nowrap">
 
                         <thead>
 
@@ -48,11 +48,13 @@
 
                                 <th>Business</th>
 
-                                <th>Service Name</th>
+                                <th>Day</th>
 
-                                <th>Price</th>
+                                <th>Opens At</th>
 
-                                <th>Status</th>
+                                <th>Closes At</th>
+
+                                <th>Closed</th>
 
                                 <th>Actions</th>
 
@@ -62,46 +64,76 @@
 
                         <tbody>
 
-                            @foreach ($businessServices as $businessService)
+                            @foreach($businessWorkingHours as $businessWorkingHour)
 
                                 <tr>
 
                                     <td>{{ $loop->iteration }}</td>
 
                                     <td>
-                                        {{ $businessService->business?->name }}
-                                    </td>
-
-                                    <td>
-                                        {{ $businessService->name }}
+                                        {{ $businessWorkingHour->business?->name }}
                                     </td>
 
                                     <td>
 
-                                        @if($businessService->price)
+                                        @switch($businessWorkingHour->day_of_week)
 
-                                            {{ number_format($businessService->price,2) }}
+                                            @case(0)
+                                                Sunday
+                                            @break
 
-                                        @else
+                                            @case(1)
+                                                Monday
+                                            @break
 
-                                            --
+                                            @case(2)
+                                                Tuesday
+                                            @break
 
-                                        @endif
+                                            @case(3)
+                                                Wednesday
+                                            @break
+
+                                            @case(4)
+                                                Thursday
+                                            @break
+
+                                            @case(5)
+                                                Friday
+                                            @break
+
+                                            @case(6)
+                                                Saturday
+                                            @break
+
+                                        @endswitch
 
                                     </td>
 
                                     <td>
 
-                                        @if($businessService->status == 'active')
+                                        {{ $businessWorkingHour->opens_at ?? '--' }}
 
-                                            <span class="badge bg-success">
-                                                Active
-                                            </span>
+                                    </td>
 
-                                        @else
+                                    <td>
+
+                                        {{ $businessWorkingHour->closes_at ?? '--' }}
+
+                                    </td>
+
+                                    <td>
+
+                                        @if($businessWorkingHour->is_closed)
 
                                             <span class="badge bg-danger">
-                                                Inactive
+                                                Yes
+                                            </span>
+
+                                        @else
+
+                                            <span class="badge bg-success">
+                                                No
                                             </span>
 
                                         @endif
@@ -110,16 +142,16 @@
 
                                     <td>
 
-                                        <a href="{{ route('dashboard.business-service.edit', $businessService->id) }}"
-                                            class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
+                                        <a href="{{ route('dashboard.business-working-hour.edit',$businessWorkingHour->id) }}"
+                                           class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary">
 
                                             <i class="ti ti-edit text-xl leading-none"></i>
 
                                         </a>
 
-                                        <form action="{{ route('dashboard.business-service.destroy', $businessService->id) }}"
-                                            method="POST"
-                                            class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary delete-form">
+                                        <form action="{{ route('dashboard.business-working-hour.destroy',$businessWorkingHour->id) }}"
+                                              method="POST"
+                                              class="w-8 h-8 rounded-xl inline-flex items-center justify-center btn-link-secondary delete-form">
 
                                             @csrf
                                             @method('DELETE')

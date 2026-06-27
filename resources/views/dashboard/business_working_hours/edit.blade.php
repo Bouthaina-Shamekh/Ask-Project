@@ -10,11 +10,13 @@
         </li>
 
         <li class="breadcrumb-item">
-            <a href="{{ route('dashboard.business-service.index') }}">Business Services</a>
+            <a href="{{ route('dashboard.business-working-hour.index') }}">
+                Business Working Hours
+            </a>
         </li>
 
         <li class="breadcrumb-item" aria-current="page">
-            Edit Business Service
+            Edit Business Working Hour
         </li>
     </x-slot:breadcrumbs>
 
@@ -25,22 +27,22 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h5>Edit Business Service</h5>
+                    <h5>Edit Business Working Hour</h5>
                 </div>
 
                 <div class="card-body">
 
-                    <form action="{{ route('dashboard.business-service.update', $businessServices->id) }}"
+                    <form action="{{ route('dashboard.business-working-hour.update', $businessWorkingHours->id) }}"
                           method="POST">
 
                         @csrf
                         @method('PUT')
 
-                        @include('dashboard.business_services._form')
+                        @include('dashboard.business_working_hours._form')
 
                         <div class="col-span-12 text-left">
 
-                            <a href="{{ route('dashboard.business-service.index') }}"
+                            <a href="{{ route('dashboard.business-working-hour.index') }}"
                                class="btn btn-secondary">
                                 Back
                             </a>
