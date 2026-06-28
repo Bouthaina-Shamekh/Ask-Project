@@ -23,16 +23,16 @@ class CategoryController extends Controller
 
         $query = $category->businesses()->with(['category', 'area'])->where('status', 'active');
 
-        // Filters
         if (request('q')) {
             $q = request('q');
-            $query->where(fn($qb) => $qb->where('title', 'like', "%$q%")->orWhere('description', 'like', "%$q%"));
+            $query->where(fn($qb) => $qb->where('name', 'like', "%$q%")
+                ->orWhere('description', 'like', "%$q%"));
         }
         if (request('open_now')) {
             $query->where('is_open', true);
         }
         if (request('top_rated')) {
-            $query->where('avg_rating', '>=', 4);
+            $query->where('rating_avg', '>=', 4);
         }
         if (request()->filled('areas')) {
             $query->whereIn('area_id', request('areas'));
@@ -41,11 +41,10 @@ class CategoryController extends Controller
             $query->where('area_id', request('area'));
         }
 
-        // Sort
         match (request('sort', 'rating')) {
             'newest' => $query->orderByDesc('created_at'),
             'views'  => $query->orderByDesc('views_count'),
-            default  => $query->orderByDesc('avg_rating'),
+            default  => $query->orderByDesc('rating_avg'),
         };
 
         $businesses        = $query->paginate(12)->withQueryString();

@@ -35,7 +35,7 @@ class HomeController extends Controller
 
         $topRated = Business::with(['category', 'area'])
             ->where('status', 'active')
-            ->orderByDesc('avg_rating')
+            ->orderByDesc('rating_avg')
             ->take(4)
             ->get();
 

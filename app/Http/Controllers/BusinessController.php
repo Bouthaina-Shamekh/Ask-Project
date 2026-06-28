@@ -17,7 +17,7 @@ class BusinessController extends Controller
         if ($request->filled('q')) {
             $q = $request->q;
             $query->where(fn($qb) => $qb
-                ->where('title', 'like', "%$q%")
+                ->where('name', 'like', "%$q%")
                 ->orWhere('description', 'like', "%$q%")
             );
         }
@@ -39,11 +39,11 @@ class BusinessController extends Controller
         }
 
         if ($request->min_rating) {
-            $query->where('avg_rating', '>=', $request->min_rating);
+            $query->where('rating_avg', '>=', $request->min_rating);
         }
 
         match ($request->sort) {
-            'rating'  => $query->orderByDesc('avg_rating'),
+            'rating'  => $query->orderByDesc('rating_avg'),
             'newest'  => $query->orderByDesc('created_at'),
             default   => $query->orderByDesc('views_count'),
         };

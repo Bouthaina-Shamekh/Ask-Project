@@ -26,7 +26,7 @@ class SearchController extends Controller
 
             if ($q) {
                 $businessQuery->where(fn($qb) => $qb
-                    ->where('title', 'like', "%$q%")
+                    ->where('name', 'like', "%$q%")
                     ->orWhere('description', 'like', "%$q%")
                 );
             }
